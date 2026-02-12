@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>MusicStore - Главная</title>
+</head>
+<body>
+
+<table width="1000" align="center" border="1" bordercolor="#ccc">
+    
+    <tr>
+        <td colspan="2" class="header" height="100">
+            <h1>MusicStore</h1>
+            <p>Магазин лучших музыкальных альбомов</p>
+        </td>
+    </tr>
+
+    <tr>
+        <td width="200" bgcolor="#f9f9f9">
+            <h3>Меню</h3>
+            <a href="index.html" class="nav-link">🏠 Главная</a>
+            <a href="catalog.html" class="nav-link">💿 Каталог</a>
+            <a href="about.html" class="nav-link">ℹ️ О нас</a>
+            <a href="contacts.html" class="nav-link">📞 Контакты</a>
+        </td>
+
+        <td>
+            <h2>Добро пожаловать!</h2>
+            <p>Мы продаем винил и CD диски. Выберите жанр на баннере ниже (демонстрация tag MAP):</p>
+            
+            <img src="https://placehold.co/600x200/333/fff?text=ROCK+|+POP+|+JAZZ+(Click+Section)" 
+                 alt="Жанры музыки" 
+                 usemap="#musicmap" 
+                 border="0">
+
+            <map name="musicmap">
+                <area shape="rect" coords="0,0,200,200" href="catalog.html" alt="Rock Music" title="Раздел Рок">
+                <area shape="rect" coords="200,0,400,200" href="about.html" alt="Pop Music" title="Раздел Поп">
+                <area shape="circle" coords="500,100,80" href="contacts.html" alt="Jazz Music" title="Раздел Джаз">
+            </map>
+            
+            <p><small>*Попробуйте нажать на разные части картинки (Рок, Поп или Джаз/Круг).</small></p>
+        </td>
+    </tr>
+
+    <tr>
+        <td colspan="2" class="footer">
+            &copy; 2026 MusicStore. Выполнено для лабораторной работы.
+        </td>
+    </tr>
+</table>
+
+</body>
+</html>
