@@ -3,53 +3,78 @@
 <head>
     <meta charset="UTF-8">
     <title>MusicStore - Главная</title>
+    <link rel="stylesheet" href="css/index.css">
 </head>
 <body>
 
-<table width="1000" align="center" border="1" bordercolor="#ccc">
-    
-    <tr>
-        <td colspan="2" class="header" height="100">
-            <h1>MusicStore</h1>
-            <p>Магазин лучших музыкальных альбомов</p>
-        </td>
-    </tr>
+<div class="wrapper">
+    <div class="header">
+        <h1>🎵 MusicStore</h1>
+        <p>Магазин лучших музыкальных альбомов</p>
+    </div>
 
-    <tr>
-        <td width="200" bgcolor="#f9f9f9">
-            <h3>Меню</h3>
-            <a href="index.html" class="nav-link">🏠 Главная</a>
-            <a href="catalog.html" class="nav-link">💿 Каталог</a>
-            <a href="about.html" class="nav-link">ℹ️ О нас</a>
-            <a href="contacts.html" class="nav-link">📞 Контакты</a>
-            <a href="news.html" class="nav-link">📰 Новости</a>
-        </td>
+    <div class="main-content">
+        <div class="sidebar">
+            <h3>Навигация</h3>
+            <ul class="nav-list">
+                <li><a href="index.html" class="active">🏠 Главная</a></li>
+                <li><a href="catalog.html">💿 Каталог</a></li>
+                <li><a href="about.html">ℹ️ О нас</a></li>
+                <li><a href="contacts.html">📞 Контакты</a></li>
+                <li><a href="news.html">📰 Новости</a></li>
+            </ul>
+        </div>
 
-        <td>
-            <h2>Добро пожаловать!</h2>
-            <p>Мы продаем винил и CD диски. Выберите жанр на баннере ниже:</p>
-            
-            <img src="https://placehold.co/600x200/333/fff?text=ROCK+|+POP+|+JAZZ+(Click+Section)" 
-                 alt="Жанры музыки" 
-                 usemap="#musicmap" 
-                 border="0">
+        <div class="content">
+            <div class="hero-section">
+                <h2>Добро пожаловать!</h2>
+                <p>Виниловые пластинки и CD диски лучших исполнителей. Выберите свой жанр и погрузитесь в мир качественного звука.</p>
+                <a href="catalog.html" class="hero-btn">💿 Перейти в каталог</a>
+            </div>
 
-            <map name="musicmap">
-                <area shape="rect" coords="0,0,200,200" href="catalog.html" alt="Rock Music" title="Раздел Рок">
-                <area shape="rect" coords="200,0,400,200" href="about.html" alt="Pop Music" title="Раздел Поп">
-                <area shape="circle" coords="500,100,80" href="contacts.html" alt="Jazz Music" title="Раздел Джаз">
-            </map>
-            
-            <p><small>*Попробуйте нажать на разные части картинки (Рок, Поп или Джаз/Круг).</small></p>
-        </td>
-    </tr>
+            <div class="map-section">
+                <h2>Выберите жанр</h2>
+                <p>Нажмите на секцию баннера для перехода в нужный раздел:</p>
 
-    <tr>
-        <td colspan="2" class="footer">
-            &copy; 2026 MusicStore. Выполнено для лабораторной работы.
-        </td>
-    </tr>
-</table>
+                <div class="map-container">
+                    <img src="https://placehold.co/700x200/1a1a2e/fff?text=ROCK+|+POP+|+JAZZ"
+                         alt="Жанры музыки"
+                         usemap="#musicmap"
+                         style="width:100%; height:auto; display:block;">
+
+                    <map name="musicmap">
+                        <area shape="rect" coords="0,0,233,200"   href="catalog.html"  alt="Rock" title="🎸 Раздел Рок">
+                        <area shape="rect" coords="233,0,467,200" href="about.html"    alt="Pop"  title="🎤 Раздел Поп">
+                        <area shape="rect" coords="467,0,700,200" href="contacts.html" alt="Jazz" title="🎷 Раздел Джаз">
+                    </map>
+                </div>
+                <p class="map-hint">* Нажмите на любую секцию: Рок, Поп или Джаз</p>
+            </div>
+
+            <div class="features">
+                <div class="feature-card">
+                    <span class="feature-icon">🚚</span>
+                    <h4>Быстрая доставка</h4>
+                    <p>Курьерская доставка по Кишинёву за 1–2 дня</p>
+                </div>
+                <div class="feature-card">
+                    <span class="feature-icon">🎵</span>
+                    <h4>Только оригиналы</h4>
+                    <p>Лицензированный контент от официальных лейблов</p>
+                </div>
+                <div class="feature-card">
+                    <span class="feature-icon">🎓</span>
+                    <h4>Скидка студентам</h4>
+                    <p>−15% при предъявлении студенческого билета</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        &copy; 2026 MusicStore &mdash; <a href="about.html">О нас</a> &middot; <a href="contacts.html">Контакты</a>
+    </div>
+</div>
 
 </body>
 </html>

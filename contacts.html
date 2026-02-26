@@ -3,74 +3,96 @@
 <head>
     <meta charset="UTF-8">
     <title>MusicStore - Контакты</title>
+    <link rel="stylesheet" href="css/contacts.css">
 </head>
 <body>
 
-<table width="1000" align="center" border="1" bordercolor="#ccc">
-    <tr>
-        <td colspan="2" class="header" height="80">
-            <h1>Свяжитесь с нами</h1>
-        </td>
-    </tr>
-    <tr>
-        <td width="200" bgcolor="#f9f9f9">
-            <h3>Меню</h3>
-            <a href="index.html" class="nav-link">🏠 Главная</a>
-            <a href="catalog.html" class="nav-link">💿 Каталог</a>
-            <a href="about.html" class="nav-link">ℹ️ О нас</a>
-            <a href="contacts.html" class="nav-link" style="background:#ccc">📞 Контакты</a>
-            <a href="news.html" class="nav-link">📰 Новости</a>
-        </td>
-        <td>
-            <h2>Форма заказа / Обратной связи</h2>
-            <p>Заполните форму, и мы свяжемся с вами для уточнения деталей заказа.</p>
+<div class="wrapper">
+    <div class="header">
+        <h1>📞 Свяжитесь с нами</h1>
+    </div>
 
-            <form action="#">
-                <table border="0" width="400" cellspacing="5">
-                    <tr>
-                        <td width="150" align="right"><b>Ваше имя:</b></td>
-                        <td><input type="text" name="name" style="width: 100%;"></td>
-                    </tr>
-                    <tr>
-                        <td align="right"><b>Email:</b></td>
-                        <td><input type="email" name="email" style="width: 100%;"></td>
-                    </tr>
-                    <tr>
-                        <td align="right"><b>Тип обращения:</b></td>
-                        <td>
-                            <select name="type" style="width: 100%;">
-                                <option>Заказ альбома</option>
-                                <option>Жалоба</option>
-                                <option>Предложение</option>
-                            </select>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td align="right" valign="top"><b>Сообщение:</b></td>
-                        <td><textarea name="message" rows="5" style="width: 100%;"></textarea></td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td>
-                            <input type="submit" value="Отправить">
-                            <input type="reset" value="Очистить">
-                        </td>
-                    </tr>
-                </table>
-            </form>
+    <div class="main-content">
+        <div class="sidebar">
+            <h3>Навигация</h3>
+            <ul class="nav-list">
+                <li><a href="index.html">🏠 Главная</a></li>
+                <li><a href="catalog.html">💿 Каталог</a></li>
+                <li><a href="about.html">ℹ️ О нас</a></li>
+                <li><a href="contacts.html" class="active">📞 Контакты</a></li>
+                <li><a href="news.html">📰 Новости</a></li>
+            </ul>
+        </div>
 
-            <hr>
-            <h3>Наш адрес:</h3>
-            <p>г. Кишинев, бул. Штефан чел Маре 168</p>
-            <p>Телефон: +373 22 123 456</p>
-        </td>
-    </tr>
-    <tr>
-        <td colspan="2" class="footer">
-            &copy; 2026 MusicStore.
-        </td>
-    </tr>
-</table>
+        <div class="content">
+            <h2>Форма заказа и обратной связи</h2>
+            <p style="color:#666; margin-top:0;">Заполните форму, и мы свяжемся с вами в течение 24 часов.</p>
+
+            <div class="contacts-layout">
+                <form action="#" class="contact-form">
+                    <div class="form-group">
+                        <label for="userName">Ваше имя</label>
+                        <input type="text" id="userName" name="name" placeholder="Иван Иванов">
+                    </div>
+                    <div class="form-group">
+                        <label for="userEmail">Email</label>
+                        <input type="email" id="userEmail" name="email" placeholder="example@mail.com">
+                    </div>
+                    <div class="form-group">
+                        <label for="userPhone">Телефон</label>
+                        <input type="tel" id="userPhone" name="phone" placeholder="+373 XX XXX XXX">
+                    </div>
+                    <div class="form-group">
+                        <label for="reqType">Тип обращения</label>
+                        <select id="reqType" name="type">
+                            <option>Заказ альбома</option>
+                            <option>Вопрос о наличии</option>
+                            <option>Жалоба</option>
+                            <option>Предложение</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="userMessage">Сообщение</label>
+                        <textarea id="userMessage" name="message" rows="4" placeholder="Напишите детали здесь..."></textarea>
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-submit">✉️ Отправить</button>
+                        <button type="reset" class="btn btn-reset">✖ Очистить</button>
+                    </div>
+                </form>
+
+                <div class="contact-info-panel">
+                    <div class="info-card">
+                        <h4>📍 Адрес</h4>
+                        <p>г. Кишинёв</p>
+                        <p>бул. Штефан чел Маре, 168</p>
+                    </div>
+                    <div class="info-card">
+                        <h4>📞 Телефон</h4>
+                        <p><a href="tel:+37322123456">+373 22 123 456</a></p>
+                    </div>
+                    <div class="info-card">
+                        <h4>📧 Email</h4>
+                        <p><a href="mailto:info@musicstore.md">info@musicstore.md</a></p>
+                    </div>
+                    <div class="info-card">
+                        <h4>🕐 Режим работы</h4>
+                        <p>Пн–Пт: 9:00 – 19:00</p>
+                        <p>Сб: 10:00 – 16:00</p>
+                        <p>Вс: выходной</p>
+                    </div>
+                    <div class="map-embed">
+                        📍 Карта (Google Maps)
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        &copy; 2026 MusicStore &mdash; Выполнено для лабораторной работы №2.
+    </div>
+</div>
 
 </body>
 </html>

@@ -3,85 +3,124 @@
 <head>
     <meta charset="UTF-8">
     <title>MusicStore - Каталог</title>
+    <link rel="stylesheet" href="css/catalog.css">
 </head>
 <body>
 
-<table width="1000" align="center" border="1" bordercolor="#ccc">
-    <tr>
-        <td colspan="2" class="header" height="80">
-            <h1>Наши Альбомы</h1>
-        </td>
-    </tr>
-    <tr>
-        <td width="200" bgcolor="#f9f9f9">
-            <h3>Меню</h3>
-            <a href="index.html" class="nav-link">🏠 Главная</a>
-            <a href="catalog.html" class="nav-link" style="background:#ccc">💿 Каталог</a>
-            <a href="about.html" class="nav-link">ℹ️ О нас</a>
-            <a href="contacts.html" class="nav-link">📞 Контакты</a>
-            <a href="news.html" class="nav-link">📰 Новости</a>
-        </td>
-        <td>
+<div class="wrapper">
+    <div class="header">
+        <h1>💿 Наши Альбомы</h1>
+    </div>
+
+    <div class="main-content">
+        <div class="sidebar">
+            <h3>Навигация</h3>
+            <ul class="nav-list">
+                <li><a href="index.html">🏠 Главная</a></li>
+                <li><a href="catalog.html" class="active">💿 Каталог</a></li>
+                <li><a href="about.html">ℹ️ О нас</a></li>
+                <li><a href="contacts.html">📞 Контакты</a></li>
+                <li><a href="news.html">📰 Новости</a></li>
+            </ul>
+        </div>
+
+        <div class="content">
             <h2>Свежие поступления</h2>
-            <p>Нажмите на обложку, чтобы заказать альбом</p>
 
-            <table width="100%" border="0">
-                <tr>
-                    <td align="center">
+            <div class="filter-bar">
+                <button class="filter-btn active">Все</button>
+                <button class="filter-btn">Рок</button>
+                <button class="filter-btn">Метал</button>
+                <button class="filter-btn">Прогрессив</button>
+                <button class="filter-btn">Гранж</button>
+            </div>
+
+            <div class="catalog-grid">
+                <div class="catalog-item">
+                    <div class="catalog-item-img-wrap">
                         <a href="contacts.html">
-                            <img src="images/Minutes_to_Midnight_cover.jpg" height="150" width="150" border="0" alt="Minutes to Midnight">
+                            <img src="assets/img/Audioslave-debut-album-cover-artwork-web-optimised-820-820x820.jpg" alt="Audioslave">
                         </a>
+                    </div>
+                    <div class="catalog-item-body">
+                        <h3>Audioslave</h3>
+                        <p class="price">$20</p>
+                        <a href="contacts.html" class="order-btn">Заказать</a>
+                    </div>
+                </div>
+
+                <div class="catalog-item">
+                    <div class="catalog-item-img-wrap">
+                        <a href="contacts.html">
+                            <img src="assets/img/Blackparadecover.jpg" alt="My Chemical Romance">
+                        </a>
+                    </div>
+                    <div class="catalog-item-body">
+                        <h3>Welcome to The Black Parade</h3>
+                        <p class="price">$25</p>
+                        <a href="contacts.html" class="order-btn">Заказать</a>
+                    </div>
+                </div>
+
+                <div class="catalog-item">
+                    <div class="catalog-item-img-wrap">
+                        <a href="contacts.html">
+                            <img src="assets/img/inthecourtofthecrimsonking.jpg" alt="King Crimson">
+                        </a>
+                    </div>
+                    <div class="catalog-item-body">
+                        <h3>In The Court Of The Crimson King</h3>
+                        <p class="price">$22</p>
+                        <a href="contacts.html" class="order-btn">Заказать</a>
+                    </div>
+                </div>
+
+                <div class="catalog-item">
+                    <div class="catalog-item-img-wrap">
+                        <a href="contacts.html">
+                            <img src="assets/img/Minutes_to_Midnight_cover.jpg" alt="Linkin Park">
+                        </a>
+                    </div>
+                    <div class="catalog-item-body">
                         <h3>Minutes to Midnight</h3>
-                        <p>Цена: <b>$20</b></p>
-                    </td>
-                    <td align="center">
-                        <a href="contacts.html">
-                            <img src="images/MuseAbsAlbCov.jpg" height="150" width="150" border="0" alt="Absolution">
-                        </a>
-                        <h3>Absolution</h3>
-                        <p>Цена: <b>$25</b></p>
-                    </td>
-                    <td align="center">
-                        <a href="contacts.html">
-                            <img src="images/PearlJam-Ten.jpg" height="150" width="150" border="0" alt="Ten">
-                        </a>
-                        <h3>Ten</h3>
-                        <p>Цена: <b>$22</b></p>
-                    </td>
-                </tr>
-                <tr>
-                    <td align="center">
-                        <a href="contacts.html">
-                            <img src="images/Blackparadecover.jpg" height="150" width="150" border="0" alt="Welcome to the Black Parade">
-                        </a>
-                        <h3>A Night at the Opera</h3>
-                        <p>Цена: <b>$18</b></p>
-                    </td>
-                    <td align="center">
-                        <a href="contacts.html">
-                            <img src="images/Audioslave-debut-album-cover-artwork-web-optimised-820-820x820.jpg" height="150" width="150" border="0" alt="Audioslave">
-                        </a>
-                        <h3>Nevermind</h3>
-                        <p>Цена: <b>$30</b></p>
-                    </td>
-                    <td align="center">
-                         <a href="contacts.html">
-                            <img src="images/inthecourtofthecrimsonking.jpg" height="150" width="150" border="0" alt="In the Court of the Crimson King">
-                        </a>
-                        <h3>Master of Puppets</h3>
-                        <p>Цена: <b>$28</b></p>
-                    </td>
-                </tr>
-            </table>
+                        <p class="price">$18</p>
+                        <a href="contacts.html" class="order-btn">Заказать</a>
+                    </div>
+                </div>
 
-        </td>
-    </tr>
-    <tr>
-        <td colspan="2" class="footer">
-            &copy; 2026 MusicStore.
-        </td>
-    </tr>
-</table>
+                <div class="catalog-item">
+                    <div class="catalog-item-img-wrap">
+                        <a href="contacts.html">
+                            <img src="assets/img/MuseAbsAlbCov.jpg" alt="Muse">
+                        </a>
+                    </div>
+                    <div class="catalog-item-body">
+                        <h3>Absolution</h3>
+                        <p class="price">$30</p>
+                        <a href="contacts.html" class="order-btn">Заказать</a>
+                    </div>
+                </div>
+
+                <div class="catalog-item">
+                    <div class="catalog-item-img-wrap">
+                        <a href="contacts.html">
+                            <img src="assets/img/PearlJam-Ten.jpg" alt="Pearl Jam">
+                        </a>
+                    </div>
+                    <div class="catalog-item-body">
+                        <h3>Ten</h3>
+                        <p class="price">$28</p>
+                        <a href="contacts.html" class="order-btn">Заказать</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        &copy; 2026 MusicStore &mdash; <a href="contacts.html">Оформить заказ</a>
+    </div>
+</div>
 
 </body>
 </html>

@@ -3,77 +3,88 @@
 <head>
     <meta charset="UTF-8">
     <title>MusicStore - Новости</title>
+    <link rel="stylesheet" href="css/news.css">
 </head>
 <body>
 
-<table width="1000" align="center" border="1" bordercolor="#ccc">
-    <tr>
-        <td colspan="2" class="header" height="80">
-            <h1>Музыкальный Блог</h1>
-        </td>
-    </tr>
-    <tr>
-        <td width="200" bgcolor="#f9f9f9">
-            <h3>Меню</h3>
-            <a href="index.html" class="nav-link">🏠 Главная</a>
-            <a href="catalog.html" class="nav-link">💿 Каталог</a>
-            <a href="about.html" class="nav-link">ℹ️ О нас</a>
-            <a href="contacts.html" class="nav-link">📞 Контакты</a>
-            <a href="news.html" class="nav-link" style="background:#ccc">📰 Новости</a>
-        </td>
-        <td>
+<div class="wrapper">
+    <div class="header">
+        <h1>📰 Музыкальный Блог</h1>
+    </div>
+
+    <div class="main-content">
+        <div class="sidebar">
+            <h3>Навигация</h3>
+            <ul class="nav-list">
+                <li><a href="index.html">🏠 Главная</a></li>
+                <li><a href="catalog.html">💿 Каталог</a></li>
+                <li><a href="about.html">ℹ️ О нас</a></li>
+                <li><a href="contacts.html">📞 Контакты</a></li>
+                <li><a href="news.html" class="active">📰 Новости</a></li>
+            </ul>
+
+            <div class="sidebar-widget">
+                <h4>Теги</h4>
+                <span class="tag">Винил</span>
+                <span class="tag">Рок</span>
+                <span class="tag">Джаз</span>
+                <span class="tag">Акции</span>
+                <span class="tag">CD</span>
+                <span class="tag">События</span>
+            </div>
+        </div>
+
+        <div class="content">
             <h2>Последние события</h2>
 
-            <table width="100%" border="0" cellspacing="5">
-                <tr>
-                    <td width="150" valign="top">
-                        <img src="https://placehold.co/150x100/555/fff?text=Vinyl+Boom" border="1" alt="Винил">
-                    </td>
-                    <td valign="top">
+            <div class="news-list">
+                <div class="news-item">
+                    <div class="news-image">
+                        <img src="https://placehold.co/150x100/1a1a2e/fff?text=Vinyl+Boom" alt="Винил">
+                    </div>
+                    <div class="news-text">
                         <p class="news-date">📅 12 Февраля 2026</p>
                         <h3>Винил снова в моде!</h3>
-                        <p>Продажи виниловых пластинок побили рекорды 1990 года. Мы расширяем наш ассортимент классического рока.</p>
-                        <a href="catalog.html">Перейти к покупкам >></a>
-                    </td>
-                </tr>
-            </table>
-            <hr color="#eee">
+                        <p>Продажи виниловых пластинок побили рекорды 1990 года. Мы расширяем наш ассортимент классического рока и прогрессива.</p>
+                        <a href="catalog.html" class="read-more">Перейти к покупкам »</a>
+                    </div>
+                </div>
 
-            <table width="100%" border="0" cellspacing="5">
-                <tr>
-                    <td width="150" valign="top">
-                        <img src="https://placehold.co/150x100/777/fff?text=Live+Concert" border="1" alt="Концерт">
-                    </td>
-                    <td valign="top">
+                <hr class="news-divider">
+
+                <div class="news-item">
+                    <div class="news-image">
+                        <img src="https://placehold.co/150x100/0f3460/fff?text=Concert" alt="Концерт">
+                    </div>
+                    <div class="news-text">
                         <p class="news-date">📅 10 Февраля 2026</p>
-                        <h3>Розыгрыш билетов</h3>
-                        <p>При покупке от $100 вы участвуете в розыгрыше билетов на местный джазовый фестиваль.</p>
-                    </td>
-                </tr>
-            </table>
-            <hr color="#eee">
+                        <h3>Розыгрыш билетов на джаз-фестиваль</h3>
+                        <p>При покупке от $100 вы автоматически участвуете в розыгрыше двух билетов на местный джазовый фестиваль.</p>
+                        <a href="contacts.html" class="read-more">Узнать подробнее »</a>
+                    </div>
+                </div>
 
-            <table width="100%" border="0" cellspacing="5">
-                <tr>
-                    <td width="150" valign="top">
-                        <img src="https://placehold.co/150x100/333/fff?text=New+Site" border="1" alt="Сайт">
-                    </td>
-                    <td valign="top">
+                <hr class="news-divider">
+
+                <div class="news-item">
+                    <div class="news-image">
+                        <img src="https://placehold.co/150x100/e94560/fff?text=New+Site" alt="Открытие">
+                    </div>
+                    <div class="news-text">
                         <p class="news-date">📅 01 Февраля 2026</p>
                         <h3>Мы открылись!</h3>
-                        <p>Наш онлайн-магазин начал свою работу. Спасибо, что вы с нами.</p>
-                    </td>
-                </tr>
-            </table>
+                        <p>Наш онлайн-магазин начал свою работу. Первым 50 покупателям — скидка 10% на любой заказ. Спасибо, что вы с нами!</p>
+                        <a href="catalog.html" class="read-more">Выбрать альбом »</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
-        </td>
-    </tr>
-    <tr>
-        <td colspan="2" class="footer">
-            &copy; 2026 MusicStore.
-        </td>
-    </tr>
-</table>
+    <div class="footer">
+        &copy; 2026 MusicStore &mdash; Выполнено для лабораторной работы №2.
+    </div>
+</div>
 
 </body>
 </html>

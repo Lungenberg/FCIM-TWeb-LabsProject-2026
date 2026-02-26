@@ -3,48 +3,95 @@
 <head>
     <meta charset="UTF-8">
     <title>MusicStore - О нас</title>
+    <link rel="stylesheet" href="css/about.css">
 </head>
 <body>
 
-<table width="1000" align="center" border="1" bordercolor="#ccc">
-    <tr>
-        <td colspan="2" class="header" height="80">
-            <h1>О нашей компании</h1>
-        </td>
-    </tr>
-    <tr>
-        <td width="200" bgcolor="#f9f9f9">
-            <h3>Меню</h3>
-            <a href="index.html" class="nav-link">🏠 Главная</a>
-            <a href="catalog.html" class="nav-link">💿 Каталог</a>
-            <a href="about.html" class="nav-link" style="background:#ccc">ℹ️ О нас</a>
-            <a href="contacts.html" class="nav-link">📞 Контакты</a>
-            <a href="news.html" class="nav-link">📰 Новости</a>
-        </td>
-        <td>
-            <h2>Кто мы такие?</h2>
-            <img src="https://placehold.co/300x200?text=Our+Team" align="left" hspace="20" alt="Команда">
-            
-            <p>Мы — группа энтузиастов из Технического Университета, которые любят качественный звук. Наш магазин был основан в 2026 году.</p>
-            <p>Мы считаем, что музыка должна звучать так, как её задумал автор, поэтому мы специализируемся на высококачественном виниле.</p>
-            <br clear="all">
-            
-            <h3>Наши технологии</h3>
-            <p>Сайт разработан с использованием чистого HTML для демонстрации навыков верстки.</p>
-            
-            <ul>
-                <li>Только лицензионный контент.</li>
-                <li>Быстрая доставка по Кишиневу.</li>
-                <li>Студентам скидки.</li>
+<div class="wrapper">
+    <div class="header">
+        <h1>ℹ️ О нашей компании</h1>
+    </div>
+
+    <div class="main-content">
+        <div class="sidebar">
+            <h3>Навигация</h3>
+            <ul class="nav-list">
+                <li><a href="index.html">🏠 Главная</a></li>
+                <li><a href="catalog.html">💿 Каталог</a></li>
+                <li><a href="about.html" class="active">ℹ️ О нас</a></li>
+                <li><a href="contacts.html">📞 Контакты</a></li>
+                <li><a href="news.html">📰 Новости</a></li>
             </ul>
-        </td>
-    </tr>
-    <tr>
-        <td colspan="2" class="footer">
-            &copy; 2026 MusicStore.
-        </td>
-    </tr>
-</table>
+        </div>
+
+        <div class="content">
+            <h2>Кто мы такие?</h2>
+
+            <div class="about-section">
+                <img src="https://placehold.co/260x180/1a1a2e/fff?text=Our+Team" alt="Команда" class="about-img">
+                <div class="about-text">
+                    <p>Мы — группа энтузиастов из Технического Университета Молдовы, которые влюблены в качественный звук. Наш магазин был основан в 2025 году с одной целью — сделать хорошую музыку доступной.</p>
+                    <p>Мы считаем, что музыка должна звучать так, как её задумал автор, поэтому мы специализируемся на высококачественном виниле и лицензионных CD.</p>
+                </div>
+            </div>
+
+            <div class="stats-row">
+                <div class="stat-card">
+                    <span class="stat-number">200+</span>
+                    <span class="stat-label">Альбомов в каталоге</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">500+</span>
+                    <span class="stat-label">Довольных клиентов</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">1 год</span>
+                    <span class="stat-label">На рынке</span>
+                </div>
+            </div>
+
+            <h3>Наша команда</h3>
+            <table class="team-table">
+                <thead>
+                    <tr>
+                        <th>Имя</th>
+                        <th>Роль</th>
+                        <th>Специализация</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Алексей М.</td>
+                        <td>Основатель</td>
+                        <td>Рок, Прогрессив</td>
+                    </tr>
+                    <tr>
+                        <td>Мария В.</td>
+                        <td>Куратор каталога</td>
+                        <td>Джаз, Поп</td>
+                    </tr>
+                    <tr>
+                        <td>Иван Т.</td>
+                        <td>Разработчик сайта</td>
+                        <td>HTML, CSS</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Наши принципы</h3>
+            <ul class="features-list">
+                <li>Только лицензионный контент от официальных лейблов.</li>
+                <li>Быстрая курьерская доставка по Кишинёву (1–2 дня).</li>
+                <li>Специальные скидки 15% для студентов.</li>
+                <li>Гарантия качества или возврат средств.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="footer">
+        &copy; 2026 MusicStore &mdash; <a href="contacts.html">Связаться с нами</a>
+    </div>
+</div>
 
 </body>
 </html>

@@ -1,0 +1,210 @@
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background-color: #1a1a2e;
+    margin: 0;
+    color: #333;
+    line-height: 1.6;
+}
+
+.wrapper {
+    width: 1000px;
+    margin: 30px auto;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+    overflow: hidden;
+}
+
+.header {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+    color: white;
+    text-align: center;
+    padding: 45px 20px;
+    position: relative;
+}
+
+.header::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #e94560, #0f3460, #e94560);
+}
+
+.header h1 { margin: 0; font-size: 2.2em; letter-spacing: 2px; }
+
+.main-content { display: flex; min-height: 500px; }
+
+.sidebar {
+    width: 220px;
+    background: linear-gradient(180deg, #f8f9fa, #e9ecef);
+    padding: 25px 15px;
+    border-right: 1px solid #dee2e6;
+    flex-shrink: 0;
+}
+
+.sidebar h3 {
+    color: #1a1a2e;
+    font-size: 0.85em;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin: 0 0 15px 0;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #e94560;
+}
+
+.content { padding: 30px; flex-grow: 1; }
+
+.footer {
+    background: linear-gradient(135deg, #1a1a2e, #0f3460);
+    color: rgba(255,255,255,0.7);
+    text-align: center;
+    padding: 20px;
+    font-size: 13px;
+}
+
+.footer a { color: #e94560; text-decoration: none; }
+
+.nav-list { list-style-type: none; padding: 0; margin: 0; }
+.nav-list li { margin-bottom: 6px; }
+
+.nav-list a:link, .nav-list a:visited {
+    display: block; padding: 10px 14px;
+    background: white; text-decoration: none; color: #444;
+    border-radius: 8px; font-size: 0.95em;
+    border: 1px solid transparent;
+    transition: all 0.25s ease;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.07);
+}
+
+.nav-list a:hover {
+    background: #1a1a2e; color: white;
+    transform: translateX(5px);
+    border-color: #e94560;
+}
+
+.nav-list a.active {
+    background: linear-gradient(135deg, #e94560, #c73652);
+    color: white;
+    box-shadow: 0 3px 10px rgba(233,69,96,0.4);
+}
+
+h2 {
+    color: #1a1a2e;
+    border-bottom: 2px solid #e94560;
+    padding-bottom: 8px;
+    margin-top: 0;
+}
+
+h3 { color: #1a1a2e; margin-top: 25px; }
+
+/* About section */
+.about-section {
+    display: flex;
+    gap: 25px;
+    align-items: flex-start;
+    margin: 20px 0;
+    padding: 20px;
+    background: #f8f9fa;
+    border-radius: 10px;
+}
+
+.about-img {
+    width: 260px;
+    flex-shrink: 0;
+    border-radius: 10px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+    transition: transform 0.3s ease;
+}
+
+.about-img:hover { transform: scale(1.03); }
+
+.about-text p {
+    margin-bottom: 12px;
+    text-align: justify;
+    color: #555;
+}
+
+.clear { clear: both; }
+
+/* Stats */
+.stats-row {
+    display: flex;
+    gap: 15px;
+    margin: 20px 0;
+}
+
+.stat-card {
+    flex: 1;
+    text-align: center;
+    padding: 20px;
+    background: linear-gradient(135deg, #1a1a2e, #0f3460);
+    color: white;
+    border-radius: 10px;
+}
+
+.stat-number {
+    display: block;
+    font-size: 2em;
+    font-weight: bold;
+    color: #e94560;
+}
+
+.stat-label {
+    font-size: 0.85em;
+    opacity: 0.8;
+}
+
+/* Team table */
+.team-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+    font-size: 0.95em;
+}
+
+.team-table th {
+    background: #1a1a2e;
+    color: white;
+    padding: 12px 15px;
+    text-align: left;
+}
+
+.team-table td {
+    padding: 11px 15px;
+    border-bottom: 1px solid #eee;
+}
+
+.team-table tr:hover td { background: #f8f9fa; }
+.team-table tr:nth-child(even) td { background: #fdfdfd; }
+
+/* Features list */
+.features-list {
+    list-style: none;
+    padding: 0;
+    margin: 15px 0;
+}
+
+.features-list li {
+    padding: 12px 15px 12px 42px;
+    background: #f8f9fa;
+    border-radius: 8px;
+    margin-bottom: 8px;
+    border-left: 4px solid #e94560;
+    position: relative;
+    transition: background 0.25s, transform 0.25s;
+}
+
+.features-list li::before {
+    content: '✓';
+    position: absolute;
+    left: 14px;
+    color: #e94560;
+    font-weight: bold;
+    font-size: 1.1em;
+}
+
+.features-list li:hover {
+    background: #eef0f3;
+    transform: translateX(4px);
+}
