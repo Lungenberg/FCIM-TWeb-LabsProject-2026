@@ -7,7 +7,7 @@ body {
 }
 
 .wrapper {
-    width: 1000px;
+    width: 1500px;
     margin: 30px auto;
     background-color: #ffffff;
     border-radius: 12px;
@@ -96,7 +96,6 @@ body {
     margin-top: 0;
 }
 
-/* Filter bar */
 .filter-bar {
     display: flex;
     gap: 8px;
@@ -123,11 +122,10 @@ body {
     border-color: #1a1a2e;
 }
 
-/* Catalog grid */
 .catalog-grid {
     display: flex;
     flex-wrap: wrap;
-    gap: 18px;
+    gap: 17px;
 }
 
 .catalog-item {
@@ -163,22 +161,21 @@ body {
 }
 
 .catalog-item-body {
-    padding: 15px;
+    padding: 10px 12px;
     text-align: center;
 }
 
 .catalog-item h3 {
-    margin: 0 0 8px 0;
-    font-size: 0.95em;
+    margin: 0 0 5px 0;
+    font-size: 0.9em;
     color: #1a1a2e;
-    min-height: 38px;
 }
 
 .price {
     color: #e94560;
-    font-size: 1.2em;
+    font-size: 1.1em;
     font-weight: bold;
-    margin: 0 0 12px 0;
+    margin: 0 0 8px 0;
 }
 
 .order-btn {

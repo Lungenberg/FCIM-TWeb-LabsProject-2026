@@ -7,7 +7,7 @@ body {
 }
 
 .wrapper {
-    width: 1000px;
+    width: 1500px;
     margin: 30px auto;
     background-color: #ffffff;
     border-radius: 12px;
@@ -127,7 +127,6 @@ h3 { color: #1a1a2e; margin-top: 25px; }
 
 .clear { clear: both; }
 
-/* Stats */
 .stats-row {
     display: flex;
     gap: 15px;
@@ -155,7 +154,6 @@ h3 { color: #1a1a2e; margin-top: 25px; }
     opacity: 0.8;
 }
 
-/* Team table */
 .team-table {
     width: 100%;
     border-collapse: collapse;
@@ -178,7 +176,6 @@ h3 { color: #1a1a2e; margin-top: 25px; }
 .team-table tr:hover td { background: #f8f9fa; }
 .team-table tr:nth-child(even) td { background: #fdfdfd; }
 
-/* Features list */
 .features-list {
     list-style: none;
     padding: 0;
