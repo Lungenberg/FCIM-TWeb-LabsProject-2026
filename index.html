@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>MusicStore - Главная</title>
-    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="index.css">
 </head>
 <body>
 
@@ -18,10 +18,10 @@
             <h3>Навигация</h3>
             <ul class="nav-list">
                 <li><a href="index.html" class="active">🏠 Главная</a></li>
-                <li><a href="catalog.html">💿 Каталог</a></li>
-                <li><a href="about.html">ℹ️ О нас</a></li>
-                <li><a href="contacts.html">📞 Контакты</a></li>
-                <li><a href="news.html">📰 Новости</a></li>
+                <li><a href="pages/catalog/catalog.html">💿 Каталог</a></li>
+                <li><a href="pages/about/about.html">ℹ️ О нас</a></li>
+                <li><a href="pages/contacts/contacts.html">📞 Контакты</a></li>
+                <li><a href="pages/news/news.html">📰 Новости</a></li>
             </ul>
         </div>
 
@@ -29,7 +29,7 @@
             <div class="hero-section">
                 <h2>Добро пожаловать!</h2>
                 <p>Виниловые пластинки и CD диски лучших исполнителей. Выберите свой жанр и погрузитесь в мир качественного звука.</p>
-                <a href="catalog.html" class="hero-btn">💿 Перейти в каталог</a>
+                <a href="pages/catalog/catalog.html" class="hero-btn">💿 Перейти в каталог</a>
             </div>
 
             <div class="map-section">
@@ -43,9 +43,9 @@
                          style="width:100%; height:auto; display:block;">
 
                     <map name="musicmap">
-                        <area shape="rect" coords="0,0,233,200"   href="catalog.html"  alt="Rock" title="🎸 Раздел Рок">
-                        <area shape="rect" coords="233,0,467,200" href="about.html"    alt="Pop"  title="🎤 Раздел Поп">
-                        <area shape="rect" coords="467,0,700,200" href="contacts.html" alt="Jazz" title="🎷 Раздел Джаз">
+                        <area shape="rect" coords="0,0,233,200"   href="pages/catalog/catalog.html"  alt="Rock" title="🎸 Раздел Рок">
+                        <area shape="rect" coords="233,0,467,200" href="pages/about/about.html"       alt="Pop"  title="🎤 Раздел Поп">
+                        <area shape="rect" coords="467,0,700,200" href="pages/contacts/contacts.html" alt="Jazz" title="🎷 Раздел Джаз">
                     </map>
                 </div>
                 <p class="map-hint">* Нажмите на любую секцию: Рок, Поп или Джаз</p>
@@ -72,7 +72,7 @@
     </div>
 
     <div class="footer">
-        &copy; 2026 MusicStore &mdash; <a href="about.html">О нас</a> &middot; <a href="contacts.html">Контакты</a>
+        &copy; 2026 MusicStore &mdash; <a href="pages/about/about.html">О нас</a> &middot; <a href="pages/contacts/contacts.html">Контакты</a>
     </div>
 </div>
 
