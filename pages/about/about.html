@@ -1,56 +1,80 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MusicStore - О нас</title>
+    <link rel="stylesheet" href="../../style/common.css">
     <link rel="stylesheet" href="about.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
 
-<div class="wrapper">
-    <div class="header">
-        <h1>ℹ️ О нашей компании</h1>
+<!-- ===== HEADER ===== -->
+<header class="site-header">
+    <div class="container">
+        <a href="../../index.html" class="site-logo">
+            <i class="fa-solid fa-music"></i> MusicStore
+        </a>
+        <ul class="top-nav">
+            <li><a href="../../index.html"><i class="fa-solid fa-house"></i> Главная</a></li>
+            <li><a href="../catalog/catalog.html"><i class="fa-solid fa-compact-disc"></i> Каталог</a></li>
+            <li><a href="about.html" class="active"><i class="fa-solid fa-circle-info"></i> О нас</a></li>
+            <li><a href="../contacts/contacts.html"><i class="fa-solid fa-phone"></i> Контакты</a></li>
+            <li><a href="../news/news.html"><i class="fa-solid fa-newspaper"></i> Новости</a></li>
+        </ul>
+        <div class="header-right">
+            <span class="header-phone"><i class="fa-solid fa-phone"></i> +373 22 123 456</span>
+            <a href="../contacts/contacts.html" class="cart-btn">
+                <i class="fa-solid fa-cart-shopping"></i>
+                <span class="cart-badge">0</span>
+            </a>
+        </div>
     </div>
+</header>
 
-    <div class="main-content">
-        <div class="sidebar">
-            <h3>Навигация</h3>
-            <ul class="nav-list">
-                <li><a href="../../index.html">🏠 Главная</a></li>
-                <li><a href="../catalog/catalog.html">💿 Каталог</a></li>
-                <li><a href="about.html" class="active">ℹ️ О нас</a></li>
-                <li><a href="../contacts/contacts.html">📞 Контакты</a></li>
-                <li><a href="../news/news.html">📰 Новости</a></li>
-            </ul>
+<!-- ===== PAGE HERO ===== -->
+<div class="page-hero">
+    <div class="container">
+        <h1><i class="fa-solid fa-circle-info"></i> О нашей компании</h1>
+    </div>
+</div>
+
+<!-- ===== MAIN ===== -->
+<main class="about-main">
+    <div class="container">
+
+        <!-- Intro -->
+        <section class="about-intro">
+            <div class="about-photo-wrap">
+                <img src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=700&q=80" alt="Наша команда">
+            </div>
+            <div class="about-text">
+                <h2 class="section-title">Кто мы такие?</h2>
+                <p>Мы — группа энтузиастов из Технического Университета Молдовы, которые влюблены в качественный звук. Наш магазин был основан в 2025 году с одной целью — сделать хорошую музыку доступной.</p>
+                <p>Мы считаем, что музыка должна звучать так, как её задумал автор, поэтому мы специализируемся на высококачественном виниле и лицензионных CD.</p>
+            </div>
+        </section>
+
+        <!-- Stats -->
+        <div class="stats-row">
+            <div class="stat-card">
+                <span class="stat-number">200+</span>
+                <span class="stat-label">Альбомов в каталоге</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-number">500+</span>
+                <span class="stat-label">Довольных клиентов</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-number">1 год</span>
+                <span class="stat-label">На рынке</span>
+            </div>
         </div>
 
-        <div class="content">
-            <h2>Кто мы такие?</h2>
-
-            <div class="about-section">
-                <img src="https://placehold.co/260x180/1a1a2e/fff?text=Our+Team" alt="Команда" class="about-img">
-                <div class="about-text">
-                    <p>Мы — группа энтузиастов из Технического Университета Молдовы, которые влюблены в качественный звук. Наш магазин был основан в 2025 году с одной целью — сделать хорошую музыку доступной.</p>
-                    <p>Мы считаем, что музыка должна звучать так, как её задумал автор, поэтому мы специализируемся на высококачественном виниле и лицензионных CD.</p>
-                </div>
-            </div>
-
-            <div class="stats-row">
-                <div class="stat-card">
-                    <span class="stat-number">200+</span>
-                    <span class="stat-label">Альбомов в каталоге</span>
-                </div>
-                <div class="stat-card">
-                    <span class="stat-number">500+</span>
-                    <span class="stat-label">Довольных клиентов</span>
-                </div>
-                <div class="stat-card">
-                    <span class="stat-number">1 год</span>
-                    <span class="stat-label">На рынке</span>
-                </div>
-            </div>
-
-            <h3>Наша команда</h3>
+        <!-- Team -->
+        <section class="team-section">
+            <h2 class="section-title">Наша команда</h2>
             <table class="team-table">
                 <thead>
                     <tr>
@@ -60,38 +84,107 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>Алексей М.</td>
-                        <td>Основатель</td>
-                        <td>Рок, Прогрессив</td>
-                    </tr>
-                    <tr>
-                        <td>Мария В.</td>
-                        <td>Куратор каталога</td>
-                        <td>Джаз, Поп</td>
-                    </tr>
-                    <tr>
-                        <td>Иван Т.</td>
-                        <td>Разработчик сайта</td>
-                        <td>HTML, CSS</td>
-                    </tr>
+                    <tr><td>Алексей М.</td><td>Основатель</td><td>Рок, Прогрессив</td></tr>
+                    <tr><td>Мария В.</td><td>Куратор каталога</td><td>Джаз, Поп</td></tr>
+                    <tr><td>Иван Т.</td><td>Разработчик сайта</td><td>HTML, CSS</td></tr>
                 </tbody>
             </table>
+        </section>
 
-            <h3>Наши принципы</h3>
+        <!-- Principles -->
+        <section class="principles-section">
+            <h2 class="section-title">Наши принципы</h2>
             <ul class="features-list">
                 <li>Только лицензионный контент от официальных лейблов.</li>
                 <li>Быстрая курьерская доставка по Кишинёву (1–2 дня).</li>
                 <li>Специальные скидки 15% для студентов.</li>
                 <li>Гарантия качества или возврат средств.</li>
             </ul>
+        </section>
+
+        <!-- Reviews -->
+        <section class="reviews-section">
+            <h2 class="section-title">Отзывы клиентов</h2>
+            <div class="reviews-grid">
+                <div class="review-card">
+                    <div class="review-header">
+                        <img src="https://i.pravatar.cc/48?img=11" alt="" class="review-avatar">
+                        <div>
+                            <strong>Дмитрий К.</strong>
+                            <div class="review-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                        </div>
+                    </div>
+                    <p>Купил винил Muse — пришёл в идеальном состоянии, доставили на следующий день!</p>
+                </div>
+                <div class="review-card">
+                    <div class="review-header">
+                        <img src="https://i.pravatar.cc/48?img=47" alt="" class="review-avatar">
+                        <div>
+                            <strong>Наталья П.</strong>
+                            <div class="review-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i></div>
+                        </div>
+                    </div>
+                    <p>Огромный выбор альбомов, приятный сервис. Обязательно вернусь за Pearl Jam!</p>
+                </div>
+                <div class="review-card">
+                    <div class="review-header">
+                        <img src="https://i.pravatar.cc/48?img=33" alt="" class="review-avatar">
+                        <div>
+                            <strong>Андрей С.</strong>
+                            <div class="review-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                        </div>
+                    </div>
+                    <p>Скидка для студентов — отличная фичечка. Купил два CD за цену одного!</p>
+                </div>
+            </div>
+        </section>
+
+    </div>
+</main>
+
+<!-- ===== FOOTER ===== -->
+<footer class="site-footer">
+    <div class="footer-top">
+        <div class="container">
+            <div class="footer-col">
+                <div class="footer-logo"><i class="fa-solid fa-music"></i> MusicStore</div>
+                <p class="footer-about">Магазин лучших музыкальных альбомов. Виниловые пластинки и CD от лучших исполнителей мира.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Покупателям</h4>
+                <ul class="footer-links">
+                    <li><a href="../catalog/catalog.html">Каталог альбомов</a></li>
+                    <li><a href="../contacts/contacts.html">Доставка и оплата</a></li>
+                    <li><a href="../contacts/contacts.html">Возврат товара</a></li>
+                    <li><a href="about.html">О нас</a></li>
+                    <li><a href="../news/news.html">Новости</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Контакты</h4>
+                <div class="footer-contact-item"><i class="fa-solid fa-location-dot"></i><span>г. Кишинёв, бул. Штефан чел Маре, 168</span></div>
+                <div class="footer-contact-item"><i class="fa-solid fa-phone"></i><a href="tel:+37322123456">+373 22 123 456</a></div>
+                <div class="footer-contact-item"><i class="fa-solid fa-envelope"></i><a href="mailto:info@musicstore.md">info@musicstore.md</a></div>
+                <div class="footer-contact-item"><i class="fa-solid fa-clock"></i><span>Пн–Пт: 9:00–19:00,&nbsp;Сб: 10:00–16:00</span></div>
+            </div>
         </div>
     </div>
-
-    <div class="footer">
-        &copy; 2026 MusicStore &mdash; <a href="../contacts/contacts.html">Связаться с нами</a>
+    <div class="footer-bottom">
+        <div class="container">
+            <span class="footer-copy">&copy; 2026 MusicStore</span>
+            <div class="footer-payments">
+                <i class="fa-brands fa-cc-visa"></i>
+                <i class="fa-brands fa-cc-mastercard"></i>
+                <i class="fa-brands fa-cc-paypal"></i>
+            </div>
+            <div class="footer-social">
+                <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#" aria-label="Telegram"><i class="fa-brands fa-telegram"></i></a>
+                <a href="#" aria-label="VK"><i class="fa-brands fa-vk"></i></a>
+            </div>
+        </div>
     </div>
-</div>
+</footer>
 
 </body>
 </html>

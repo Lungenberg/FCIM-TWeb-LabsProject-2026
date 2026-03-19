@@ -1,13 +1,115 @@
-body {
-    font-family: 'Segoe UI', Arial, sans-serif;
-    background-color: #1a1a2e;
-    margin: 0;
-    color: #333;
-    line-height: 1.6;
+/* ===================================================
+   contacts.css — Contacts page
+   =================================================== */
+
+.contacts-main { padding: 56px 0 80px; }
+
+.contacts-layout {
+    display: grid;
+    grid-template-columns: 1fr 280px;
+    gap: 40px;
+    align-items: start;
 }
 
+.contacts-subtitle {
+    margin: -14px 0 28px;
+    color: var(--clr-muted);
+    font-size: 0.95em;
+}
+
+/* ---- Form ---- */
+.contact-form {
+    background: var(--clr-white);
+    padding: 32px;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-soft);
+}
+
+.form-group { margin-bottom: 18px; }
+
+.form-group label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 600;
+    color: #1A1A1A;
+    font-size: 0.88em;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 11px 14px;
+    border: 1.5px solid #E0E0E0;
+    border-radius: 8px;
+    box-sizing: border-box;
+    font-family: inherit;
+    font-size: 0.95em;
+    background: #FAFAFA;
+    color: var(--clr-text);
+    transition: border-color 0.25s, box-shadow 0.25s;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--clr-accent);
+    box-shadow: 0 0 0 3px rgba(233,69,96,0.12);
+    background: #fff;
+}
+
+.form-group textarea { resize: vertical; min-height: 110px; }
+
+.form-actions { display: flex; gap: 12px; margin-top: 22px; }
+
+/* ---- Info panel ---- */
+.contact-info-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.info-card {
+    background: var(--clr-dark);
+    color: #fff;
+    padding: 20px;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-soft);
+}
+
+.info-card h4 {
+    margin: 0 0 10px;
+    color: var(--clr-accent);
+    font-size: 0.82em;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    display: flex;
+    align-items: center;
+    gap: 7px;
+}
+
+.info-card p { margin: 5px 0; font-size: 0.9em; opacity: 0.85; }
+.info-card a { color: #e9ecef; }
+.info-card a:hover { color: var(--clr-accent); }
+
+.map-embed {
+    background: #e9ecef;
+    border-radius: var(--radius);
+    height: 130px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #888;
+    font-size: 0.9em;
+    border: 2px dashed #ccc;
+    gap: 8px;
+}
+
+
 .wrapper {
-    width: 1500px;
+    max-width: 1500px;
+    width: calc(100% - 30px);
     margin: 30px auto;
     background-color: #ffffff;
     border-radius: 12px;
@@ -85,6 +187,14 @@ body {
     background: linear-gradient(135deg, #e94560, #c73652);
     color: white;
     box-shadow: 0 3px 10px rgba(233,69,96,0.4);
+}
+
+.nav-list a i {
+    width: 16px;
+    text-align: center;
+    margin-right: 7px;
+    font-size: 0.9em;
+    opacity: 0.85;
 }
 
 h2 {

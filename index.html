@@ -1,80 +1,138 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MusicStore - Главная</title>
+    <link rel="stylesheet" href="style/common.css">
     <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
 
-<div class="wrapper">
-    <div class="header">
-        <h1>🎵 MusicStore</h1>
-        <p>Магазин лучших музыкальных альбомов</p>
-    </div>
-
-    <div class="main-content">
-        <div class="sidebar">
-            <h3>Навигация</h3>
-            <ul class="nav-list">
-                <li><a href="index.html" class="active">🏠 Главная</a></li>
-                <li><a href="pages/catalog/catalog.html">💿 Каталог</a></li>
-                <li><a href="pages/about/about.html">ℹ️ О нас</a></li>
-                <li><a href="pages/contacts/contacts.html">📞 Контакты</a></li>
-                <li><a href="pages/news/news.html">📰 Новости</a></li>
-            </ul>
-        </div>
-
-        <div class="content">
-            <div class="hero-section">
-                <h2>Добро пожаловать!</h2>
-                <p>Виниловые пластинки и CD диски лучших исполнителей. Выберите свой жанр и погрузитесь в мир качественного звука.</p>
-                <a href="pages/catalog/catalog.html" class="hero-btn">💿 Перейти в каталог</a>
-            </div>
-
-            <div class="map-section">
-                <h2>Выберите жанр</h2>
-                <p>Нажмите на секцию баннера для перехода в нужный раздел:</p>
-
-                <div class="map-container">
-                    <img src="https://placehold.co/700x200/1a1a2e/fff?text=ROCK+|+POP+|+JAZZ"
-                         alt="Жанры музыки"
-                         usemap="#musicmap"
-                         style="width:100%; height:auto; display:block;">
-
-                    <map name="musicmap">
-                        <area shape="rect" coords="0,0,233,200"   href="pages/catalog/catalog.html"  alt="Rock" title="🎸 Раздел Рок">
-                        <area shape="rect" coords="233,0,467,200" href="pages/about/about.html"       alt="Pop"  title="🎤 Раздел Поп">
-                        <area shape="rect" coords="467,0,700,200" href="pages/contacts/contacts.html" alt="Jazz" title="🎷 Раздел Джаз">
-                    </map>
-                </div>
-                <p class="map-hint">* Нажмите на любую секцию: Рок, Поп или Джаз</p>
-            </div>
-
-            <div class="features">
-                <div class="feature-card">
-                    <span class="feature-icon">🚚</span>
-                    <h4>Быстрая доставка</h4>
-                    <p>Курьерская доставка по Кишинёву за 1–2 дня</p>
-                </div>
-                <div class="feature-card">
-                    <span class="feature-icon">🎵</span>
-                    <h4>Только оригиналы</h4>
-                    <p>Лицензированный контент от официальных лейблов</p>
-                </div>
-                <div class="feature-card">
-                    <span class="feature-icon">🎓</span>
-                    <h4>Скидка студентам</h4>
-                    <p>−15% при предъявлении студенческого билета</p>
-                </div>
-            </div>
+<!-- ===== HEADER ===== -->
+<header class="site-header">
+    <div class="container">
+        <a href="index.html" class="site-logo">
+            <i class="fa-solid fa-music"></i> MusicStore
+        </a>
+        <ul class="top-nav">
+            <li><a href="index.html" class="active"><i class="fa-solid fa-house"></i> Главная</a></li>
+            <li><a href="pages/catalog/catalog.html"><i class="fa-solid fa-compact-disc"></i> Каталог</a></li>
+            <li><a href="pages/about/about.html"><i class="fa-solid fa-circle-info"></i> О нас</a></li>
+            <li><a href="pages/contacts/contacts.html"><i class="fa-solid fa-phone"></i> Контакты</a></li>
+            <li><a href="pages/news/news.html"><i class="fa-solid fa-newspaper"></i> Новости</a></li>
+        </ul>
+        <div class="header-right">
+            <span class="header-phone"><i class="fa-solid fa-phone"></i> +373 22 123 456</span>
+            <a href="pages/contacts/contacts.html" class="cart-btn">
+                <i class="fa-solid fa-cart-shopping"></i>
+                <span class="cart-badge">0</span>
+            </a>
         </div>
     </div>
+</header>
 
-    <div class="footer">
-        &copy; 2026 MusicStore &mdash; <a href="pages/about/about.html">О нас</a> &middot; <a href="pages/contacts/contacts.html">Контакты</a>
+<!-- ===== HERO ===== -->
+<section class="hero">
+    <div class="hero-overlay"></div>
+    <div class="container hero-content">
+        <p class="hero-tagline">Винил · CD · Качественный звук</p>
+        <h1>Звук,<br>который можно<br>потрогать</h1>
+        <a href="pages/catalog/catalog.html" class="btn btn-primary hero-cta">
+            <i class="fa-solid fa-compact-disc"></i> В каталог
+        </a>
     </div>
-</div>
+</section>
+
+<!-- ===== MAIN ===== -->
+<main class="main-wrap">
+    <div class="container">
+
+        <!-- Genre map -->
+        <section class="genres-section">
+            <h2 class="section-title">Выберите жанр</h2>
+            <div class="genres-grid">
+                <a href="pages/catalog/catalog.html" class="genre-card" style="background-image:url('https://images.unsplash.com/photo-1498038432885-c6f3f1b912ee?w=600&q=70')">
+                    <div class="genre-overlay"></div>
+                    <span class="genre-label"><i class="fa-solid fa-guitar"></i> Рок</span>
+                </a>
+                <a href="pages/catalog/catalog.html" class="genre-card" style="background-image:url('https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=600&q=70')">
+                    <div class="genre-overlay"></div>
+                    <span class="genre-label"><i class="fa-solid fa-microphone"></i> Поп</span>
+                </a>
+                <a href="pages/catalog/catalog.html" class="genre-card" style="background-image:url('https://images.unsplash.com/photo-1415201364774-f6f0bb35f28f?w=600&q=70')">
+                    <div class="genre-overlay"></div>
+                    <span class="genre-label"><i class="fa-solid fa-saxophone"></i> Джаз</span>
+                </a>
+            </div>
+        </section>
+
+        <!-- Features -->
+        <section class="features-section">
+            <div class="feature-card">
+                <span class="feature-icon"><i class="fa-solid fa-truck-fast"></i></span>
+                <h4>Быстрая доставка</h4>
+                <p>Курьерская доставка по Кишинёву за 1–2 дня</p>
+            </div>
+            <div class="feature-card">
+                <span class="feature-icon"><i class="fa-solid fa-shield-halved"></i></span>
+                <h4>Только оригиналы</h4>
+                <p>Лицензированный контент от официальных лейблов</p>
+            </div>
+            <div class="feature-card">
+                <span class="feature-icon"><i class="fa-solid fa-graduation-cap"></i></span>
+                <h4>Скидка студентам</h4>
+                <p>−15% при предъявлении студенческого билета</p>
+            </div>
+        </section>
+
+    </div>
+</main>
+
+<!-- ===== FOOTER ===== -->
+<footer class="site-footer">
+    <div class="footer-top">
+        <div class="container">
+            <div class="footer-col">
+                <div class="footer-logo"><i class="fa-solid fa-music"></i> MusicStore</div>
+                <p class="footer-about">Магазин лучших музыкальных альбомов. Виниловые пластинки и CD от лучших исполнителей мира. Мы работаем, чтобы музыка звучала так, как задумал автор.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Покупателям</h4>
+                <ul class="footer-links">
+                    <li><a href="pages/catalog/catalog.html">Каталог альбомов</a></li>
+                    <li><a href="pages/contacts/contacts.html">Доставка и оплата</a></li>
+                    <li><a href="pages/contacts/contacts.html">Возврат товара</a></li>
+                    <li><a href="pages/about/about.html">О нас</a></li>
+                    <li><a href="pages/news/news.html">Новости</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Контакты</h4>
+                <div class="footer-contact-item"><i class="fa-solid fa-location-dot"></i><span>г. Кишинёв, бул. Штефан чел Маре, 168</span></div>
+                <div class="footer-contact-item"><i class="fa-solid fa-phone"></i><a href="tel:+37322123456">+373 22 123 456</a></div>
+                <div class="footer-contact-item"><i class="fa-solid fa-envelope"></i><a href="mailto:info@musicstore.md">info@musicstore.md</a></div>
+                <div class="footer-contact-item"><i class="fa-solid fa-clock"></i><span>Пн–Пт: 9:00–19:00,&nbsp;Сб: 10:00–16:00</span></div>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <div class="container">
+            <span class="footer-copy">&copy; 2026 MusicStore</span>
+            <div class="footer-payments">
+                <i class="fa-brands fa-cc-visa"></i>
+                <i class="fa-brands fa-cc-mastercard"></i>
+                <i class="fa-brands fa-cc-paypal"></i>
+            </div>
+            <div class="footer-social">
+                <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#" aria-label="Telegram"><i class="fa-brands fa-telegram"></i></a>
+                <a href="#" aria-label="VK"><i class="fa-brands fa-vk"></i></a>
+            </div>
+        </div>
+    </div>
+</footer>
 
 </body>
 </html>

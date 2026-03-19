@@ -1,43 +1,97 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MusicStore - Каталог</title>
+    <link rel="stylesheet" href="../../style/common.css">
     <link rel="stylesheet" href="catalog.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
 
-<div class="wrapper">
-    <div class="header">
-        <h1>💿 Наши Альбомы</h1>
-    </div>
-
-    <div class="main-content">
-        <div class="sidebar">
-            <h3>Навигация</h3>
-            <ul class="nav-list">
-                <li><a href="../../index.html">🏠 Главная</a></li>
-                <li><a href="catalog.html" class="active">💿 Каталог</a></li>
-                <li><a href="../about/about.html">ℹ️ О нас</a></li>
-                <li><a href="../contacts/contacts.html">📞 Контакты</a></li>
-                <li><a href="../news/news.html">📰 Новости</a></li>
-            </ul>
+<!-- ===== HEADER ===== -->
+<header class="site-header">
+    <div class="container">
+        <a href="../../index.html" class="site-logo">
+            <i class="fa-solid fa-music"></i> MusicStore
+        </a>
+        <ul class="top-nav">
+            <li><a href="../../index.html"><i class="fa-solid fa-house"></i> Главная</a></li>
+            <li><a href="catalog.html" class="active"><i class="fa-solid fa-compact-disc"></i> Каталог</a></li>
+            <li><a href="../about/about.html"><i class="fa-solid fa-circle-info"></i> О нас</a></li>
+            <li><a href="../contacts/contacts.html"><i class="fa-solid fa-phone"></i> Контакты</a></li>
+            <li><a href="../news/news.html"><i class="fa-solid fa-newspaper"></i> Новости</a></li>
+        </ul>
+        <div class="header-right">
+            <span class="header-phone"><i class="fa-solid fa-phone"></i> +373 22 123 456</span>
+            <a href="../contacts/contacts.html" class="cart-btn">
+                <i class="fa-solid fa-cart-shopping"></i>
+                <span class="cart-badge">0</span>
+            </a>
         </div>
+    </div>
+</header>
 
-        <div class="content">
-            <h2>Свежие поступления</h2>
+<!-- ===== PAGE HERO ===== -->
+<div class="page-hero">
+    <div class="container">
+        <h1><i class="fa-solid fa-compact-disc"></i> Наши Альбомы</h1>
+    </div>
+</div>
 
-            <div class="filter-bar">
-                <button class="filter-btn active">Все</button>
-                <button class="filter-btn">Рок</button>
-                <button class="filter-btn">Метал</button>
-                <button class="filter-btn">Прогрессив</button>
-                <button class="filter-btn">Гранж</button>
+<!-- ===== MAIN ===== -->
+<main class="catalog-main">
+    <div class="container catalog-layout">
+
+        <!-- Sidebar: filters -->
+        <aside class="catalog-sidebar">
+            <div class="filter-group">
+                <h4 class="filter-title">Жанр</h4>
+                <label class="filter-check"><input type="checkbox" checked> Рок</label>
+                <label class="filter-check"><input type="checkbox" checked> Метал</label>
+                <label class="filter-check"><input type="checkbox" checked> Прогрессив</label>
+                <label class="filter-check"><input type="checkbox" checked> Гранж</label>
+                <label class="filter-check"><input type="checkbox"> Джаз</label>
+                <label class="filter-check"><input type="checkbox"> Поп</label>
+            </div>
+            <div class="filter-group">
+                <h4 class="filter-title">Цена, $</h4>
+                <div class="price-range">
+                    <input type="range" min="0" max="100" value="100" class="price-slider">
+                    <div class="price-labels"><span>$0</span><span>$100</span></div>
+                </div>
+            </div>
+            <div class="filter-group">
+                <h4 class="filter-title">Наличие</h4>
+                <label class="filter-check"><input type="checkbox" checked> В наличии</label>
+                <label class="filter-check"><input type="checkbox"> Под заказ</label>
+            </div>
+            <div class="filter-group">
+                <h4 class="filter-title">Носитель</h4>
+                <label class="filter-check"><input type="checkbox" checked> Винил</label>
+                <label class="filter-check"><input type="checkbox" checked> CD</label>
+            </div>
+        </aside>
+
+        <!-- Catalog grid -->
+        <section class="catalog-section">
+            <div class="catalog-toolbar">
+                <span class="catalog-count">6 альбомов</span>
+                <div class="filter-bar">
+                    <button class="filter-btn active">Все</button>
+                    <button class="filter-btn">Рок</button>
+                    <button class="filter-btn">Метал</button>
+                    <button class="filter-btn">Прогрессив</button>
+                    <button class="filter-btn">Гранж</button>
+                </div>
             </div>
 
             <div class="catalog-grid">
+
                 <div class="catalog-item">
                     <div class="catalog-item-img-wrap">
+                        <span class="badge badge-new">New</span>
                         <a href="../contacts/contacts.html">
                             <img src="../../assets/img/Audioslave-debut-album-cover-artwork-web-optimised-820-820x820.jpg" alt="Audioslave">
                         </a>
@@ -45,12 +99,13 @@
                     <div class="catalog-item-body">
                         <h3>Audioslave</h3>
                         <p class="price">$20</p>
-                        <a href="../contacts/contacts.html" class="order-btn">Заказать</a>
+                        <a href="../contacts/contacts.html" class="btn btn-primary order-btn">Заказать</a>
                     </div>
                 </div>
 
                 <div class="catalog-item">
                     <div class="catalog-item-img-wrap">
+                        <span class="badge badge-hit">Хит</span>
                         <a href="../contacts/contacts.html">
                             <img src="../../assets/img/Blackparadecover.jpg" alt="My Chemical Romance">
                         </a>
@@ -58,7 +113,7 @@
                     <div class="catalog-item-body">
                         <h3>Welcome to The Black Parade</h3>
                         <p class="price">$25</p>
-                        <a href="../contacts/contacts.html" class="order-btn">Заказать</a>
+                        <a href="../contacts/contacts.html" class="btn btn-primary order-btn">Заказать</a>
                     </div>
                 </div>
 
@@ -71,25 +126,27 @@
                     <div class="catalog-item-body">
                         <h3>In The Court Of The Crimson King</h3>
                         <p class="price">$22</p>
-                        <a href="../contacts/contacts.html" class="order-btn">Заказать</a>
+                        <a href="../contacts/contacts.html" class="btn btn-primary order-btn">Заказать</a>
                     </div>
                 </div>
 
                 <div class="catalog-item">
                     <div class="catalog-item-img-wrap">
+                        <span class="badge badge-sale">-15%</span>
                         <a href="../contacts/contacts.html">
                             <img src="../../assets/img/Minutes_to_Midnight_cover.jpg" alt="Linkin Park">
                         </a>
                     </div>
                     <div class="catalog-item-body">
                         <h3>Minutes to Midnight</h3>
-                        <p class="price">$18</p>
-                        <a href="../contacts/contacts.html" class="order-btn">Заказать</a>
+                        <p class="price">$18 <s class="old-price">$21</s></p>
+                        <a href="../contacts/contacts.html" class="btn btn-primary order-btn">Заказать</a>
                     </div>
                 </div>
 
                 <div class="catalog-item">
                     <div class="catalog-item-img-wrap">
+                        <span class="badge badge-hit">Хит</span>
                         <a href="../contacts/contacts.html">
                             <img src="../../assets/img/MuseAbsAlbCov.jpg" alt="Muse">
                         </a>
@@ -97,12 +154,13 @@
                     <div class="catalog-item-body">
                         <h3>Absolution</h3>
                         <p class="price">$30</p>
-                        <a href="../contacts/contacts.html" class="order-btn">Заказать</a>
+                        <a href="../contacts/contacts.html" class="btn btn-primary order-btn">Заказать</a>
                     </div>
                 </div>
 
                 <div class="catalog-item">
                     <div class="catalog-item-img-wrap">
+                        <span class="badge badge-new">New</span>
                         <a href="../contacts/contacts.html">
                             <img src="../../assets/img/PearlJam-Ten.jpg" alt="Pearl Jam">
                         </a>
@@ -110,17 +168,58 @@
                     <div class="catalog-item-body">
                         <h3>Ten</h3>
                         <p class="price">$28</p>
-                        <a href="../contacts/contacts.html" class="order-btn">Заказать</a>
+                        <a href="../contacts/contacts.html" class="btn btn-primary order-btn">Заказать</a>
                     </div>
                 </div>
+
+            </div>
+        </section>
+    </div>
+</main>
+
+<!-- ===== FOOTER ===== -->
+<footer class="site-footer">
+    <div class="footer-top">
+        <div class="container">
+            <div class="footer-col">
+                <div class="footer-logo"><i class="fa-solid fa-music"></i> MusicStore</div>
+                <p class="footer-about">Магазин лучших музыкальных альбомов. Виниловые пластинки и CD от лучших исполнителей мира.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Покупателям</h4>
+                <ul class="footer-links">
+                    <li><a href="catalog.html">Каталог альбомов</a></li>
+                    <li><a href="../contacts/contacts.html">Доставка и оплата</a></li>
+                    <li><a href="../contacts/contacts.html">Возврат товара</a></li>
+                    <li><a href="../about/about.html">О нас</a></li>
+                    <li><a href="../news/news.html">Новости</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Контакты</h4>
+                <div class="footer-contact-item"><i class="fa-solid fa-location-dot"></i><span>г. Кишинёв, бул. Штефан чел Маре, 168</span></div>
+                <div class="footer-contact-item"><i class="fa-solid fa-phone"></i><a href="tel:+37322123456">+373 22 123 456</a></div>
+                <div class="footer-contact-item"><i class="fa-solid fa-envelope"></i><a href="mailto:info@musicstore.md">info@musicstore.md</a></div>
+                <div class="footer-contact-item"><i class="fa-solid fa-clock"></i><span>Пн–Пт: 9:00–19:00,&nbsp;Сб: 10:00–16:00</span></div>
             </div>
         </div>
     </div>
-
-    <div class="footer">
-        &copy; 2026 MusicStore &mdash; <a href="../contacts/contacts.html">Оформить заказ</a>
+    <div class="footer-bottom">
+        <div class="container">
+            <span class="footer-copy">&copy; 2026 MusicStore</span>
+            <div class="footer-payments">
+                <i class="fa-brands fa-cc-visa"></i>
+                <i class="fa-brands fa-cc-mastercard"></i>
+                <i class="fa-brands fa-cc-paypal"></i>
+            </div>
+            <div class="footer-social">
+                <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#" aria-label="Telegram"><i class="fa-brands fa-telegram"></i></a>
+                <a href="#" aria-label="VK"><i class="fa-brands fa-vk"></i></a>
+            </div>
+        </div>
     </div>
-</div>
+</footer>
 
 </body>
 </html>

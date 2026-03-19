@@ -1,30 +1,98 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MusicStore - Новости</title>
+    <link rel="stylesheet" href="../../style/common.css">
     <link rel="stylesheet" href="news.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
 
-<div class="wrapper">
-    <div class="header">
-        <h1>📰 Музыкальный Блог</h1>
+<!-- ===== HEADER ===== -->
+<header class="site-header">
+    <div class="container">
+        <a href="../../index.html" class="site-logo">
+            <i class="fa-solid fa-music"></i> MusicStore
+        </a>
+        <ul class="top-nav">
+            <li><a href="../../index.html"><i class="fa-solid fa-house"></i> Главная</a></li>
+            <li><a href="../catalog/catalog.html"><i class="fa-solid fa-compact-disc"></i> Каталог</a></li>
+            <li><a href="../about/about.html"><i class="fa-solid fa-circle-info"></i> О нас</a></li>
+            <li><a href="../contacts/contacts.html"><i class="fa-solid fa-phone"></i> Контакты</a></li>
+            <li><a href="news.html" class="active"><i class="fa-solid fa-newspaper"></i> Новости</a></li>
+        </ul>
+        <div class="header-right">
+            <span class="header-phone"><i class="fa-solid fa-phone"></i> +373 22 123 456</span>
+            <a href="../contacts/contacts.html" class="cart-btn">
+                <i class="fa-solid fa-cart-shopping"></i>
+                <span class="cart-badge">0</span>
+            </a>
+        </div>
     </div>
+</header>
 
-    <div class="main-content">
-        <div class="sidebar">
-            <h3>Навигация</h3>
-            <ul class="nav-list">
-                <li><a href="../../index.html">🏠 Главная</a></li>
-                <li><a href="../catalog/catalog.html">💿 Каталог</a></li>
-                <li><a href="../about/about.html">ℹ️ О нас</a></li>
-                <li><a href="../contacts/contacts.html">📞 Контакты</a></li>
-                <li><a href="news.html" class="active">📰 Новости</a></li>
-            </ul>
+<!-- ===== PAGE HERO ===== -->
+<div class="page-hero">
+    <div class="container">
+        <h1><i class="fa-solid fa-newspaper"></i> Музыкальный Блог</h1>
+    </div>
+</div>
 
+<!-- ===== MAIN ===== -->
+<main class="news-main">
+    <div class="container news-layout">
+
+        <!-- News feed -->
+        <section class="news-feed">
+            <h2 class="section-title">Последние события</h2>
+
+            <div class="news-item">
+                <div class="news-image">
+                    <img src="https://images.unsplash.com/photo-1499364615650-ec38552f4f34?w=250&q=75" alt="Винил">
+                </div>
+                <div class="news-text">
+                    <p class="news-date"><i class="fa-regular fa-calendar-days"></i> 12 Февраля 2026</p>
+                    <h3>Винил снова в моде!</h3>
+                    <p>Продажи виниловых пластинок побили рекорды 1990 года. Мы расширяем наш ассортимент классического рока и прогрессива.</p>
+                    <a href="../catalog/catalog.html" class="read-more">Перейти к покупкам »</a>
+                </div>
+            </div>
+
+            <hr class="news-divider">
+
+            <div class="news-item">
+                <div class="news-image">
+                    <img src="https://images.unsplash.com/photo-1468485048248-1bba57a2d6b4?w=250&q=75" alt="Концерт">
+                </div>
+                <div class="news-text">
+                    <p class="news-date"><i class="fa-regular fa-calendar-days"></i> 10 Февраля 2026</p>
+                    <h3>Розыгрыш билетов на джаз-фестиваль</h3>
+                    <p>При покупке от $100 вы автоматически участвуете в розыгрыше двух билетов на местный джазовый фестиваль.</p>
+                    <a href="../contacts/contacts.html" class="read-more">Узнать подробнее »</a>
+                </div>
+            </div>
+
+            <hr class="news-divider">
+
+            <div class="news-item">
+                <div class="news-image">
+                    <img src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=250&q=75" alt="Открытие">
+                </div>
+                <div class="news-text">
+                    <p class="news-date"><i class="fa-regular fa-calendar-days"></i> 01 Февраля 2026</p>
+                    <h3>Мы открылись!</h3>
+                    <p>Наш онлайн-магазин начал работу. Первым 50 покупателям — скидка 10% на любой заказ. Спасибо, что вы с нами!</p>
+                    <a href="../catalog/catalog.html" class="read-more">Выбрать альбом »</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sidebar -->
+        <aside class="news-sidebar">
             <div class="sidebar-widget">
-                <h4>Теги</h4>
+                <h4 class="filter-title">Теги</h4>
                 <span class="tag">Винил</span>
                 <span class="tag">Рок</span>
                 <span class="tag">Джаз</span>
@@ -32,59 +100,63 @@
                 <span class="tag">CD</span>
                 <span class="tag">События</span>
             </div>
-        </div>
+            <div class="sidebar-widget">
+                <h4 class="filter-title">Популярное</h4>
+                <ul class="popular-list">
+                    <li><a href="../catalog/catalog.html">Muse &mdash; Absolution</a></li>
+                    <li><a href="../catalog/catalog.html">Pearl Jam &mdash; Ten</a></li>
+                    <li><a href="../catalog/catalog.html">Audioslave</a></li>
+                    <li><a href="../catalog/catalog.html">King Crimson</a></li>
+                </ul>
+            </div>
+        </aside>
 
-        <div class="content">
-            <h2>Последние события</h2>
+    </div>
+</main>
 
-            <div class="news-list">
-                <div class="news-item">
-                    <div class="news-image">
-                        <img src="https://placehold.co/150x100/1a1a2e/fff?text=Vinyl+Boom" alt="Винил">
-                    </div>
-                    <div class="news-text">
-                        <p class="news-date">📅 12 Февраля 2026</p>
-                        <h3>Винил снова в моде!</h3>
-                        <p>Продажи виниловых пластинок побили рекорды 1990 года. Мы расширяем наш ассортимент классического рока и прогрессива.</p>
-                        <a href="../catalog/catalog.html" class="read-more">Перейти к покупкам »</a>
-                    </div>
-                </div>
-
-                <hr class="news-divider">
-
-                <div class="news-item">
-                    <div class="news-image">
-                        <img src="https://placehold.co/150x100/0f3460/fff?text=Concert" alt="Концерт">
-                    </div>
-                    <div class="news-text">
-                        <p class="news-date">📅 10 Февраля 2026</p>
-                        <h3>Розыгрыш билетов на джаз-фестиваль</h3>
-                        <p>При покупке от $100 вы автоматически участвуете в розыгрыше двух билетов на местный джазовый фестиваль.</p>
-                        <a href="../contacts/contacts.html" class="read-more">Узнать подробнее »</a>
-                    </div>
-                </div>
-
-                <hr class="news-divider">
-
-                <div class="news-item">
-                    <div class="news-image">
-                        <img src="https://placehold.co/150x100/e94560/fff?text=New+Site" alt="Открытие">
-                    </div>
-                    <div class="news-text">
-                        <p class="news-date">📅 01 Февраля 2026</p>
-                        <h3>Мы открылись!</h3>
-                        <p>Наш онлайн-магазин начал свою работу. Первым 50 покупателям — скидка 10% на любой заказ. Спасибо, что вы с нами!</p>
-                        <a href="../catalog/catalog.html" class="read-more">Выбрать альбом »</a>
-                    </div>
-                </div>
+<!-- ===== FOOTER ===== -->
+<footer class="site-footer">
+    <div class="footer-top">
+        <div class="container">
+            <div class="footer-col">
+                <div class="footer-logo"><i class="fa-solid fa-music"></i> MusicStore</div>
+                <p class="footer-about">Магазин лучших музыкальных альбомов. Виниловые пластинки и CD от лучших исполнителей мира.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Покупателям</h4>
+                <ul class="footer-links">
+                    <li><a href="../catalog/catalog.html">Каталог альбомов</a></li>
+                    <li><a href="../contacts/contacts.html">Доставка и оплата</a></li>
+                    <li><a href="../contacts/contacts.html">Возврат товара</a></li>
+                    <li><a href="../about/about.html">О нас</a></li>
+                    <li><a href="news.html">Новости</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Контакты</h4>
+                <div class="footer-contact-item"><i class="fa-solid fa-location-dot"></i><span>г. Кишинёв, бул. Штефан чел Маре, 168</span></div>
+                <div class="footer-contact-item"><i class="fa-solid fa-phone"></i><a href="tel:+37322123456">+373 22 123 456</a></div>
+                <div class="footer-contact-item"><i class="fa-solid fa-envelope"></i><a href="mailto:info@musicstore.md">info@musicstore.md</a></div>
+                <div class="footer-contact-item"><i class="fa-solid fa-clock"></i><span>Пн–Пт: 9:00–19:00,&nbsp;Сб: 10:00–16:00</span></div>
             </div>
         </div>
     </div>
-
-    <div class="footer">
-        &copy; 2026 MusicStore &mdash; Выполнено для лабораторной работы №2.
+    <div class="footer-bottom">
+        <div class="container">
+            <span class="footer-copy">&copy; 2026 MusicStore</span>
+            <div class="footer-payments">
+                <i class="fa-brands fa-cc-visa"></i>
+                <i class="fa-brands fa-cc-mastercard"></i>
+                <i class="fa-brands fa-cc-paypal"></i>
+            </div>
+            <div class="footer-social">
+                <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#" aria-label="Telegram"><i class="fa-brands fa-telegram"></i></a>
+                <a href="#" aria-label="VK"><i class="fa-brands fa-vk"></i></a>
+            </div>
+        </div>
     </div>
-</div>
+</footer>
 
 </body>
 </html>

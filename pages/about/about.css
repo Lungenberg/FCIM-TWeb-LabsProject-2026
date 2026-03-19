@@ -1,13 +1,168 @@
-body {
-    font-family: 'Segoe UI', Arial, sans-serif;
-    background-color: #1a1a2e;
-    margin: 0;
-    color: #333;
-    line-height: 1.6;
+/* ===================================================
+   about.css — About page
+   =================================================== */
+
+.about-main { padding: 56px 0 80px; }
+
+/* ---- Intro ---- */
+.about-intro {
+    display: grid;
+    grid-template-columns: 420px 1fr;
+    gap: 48px;
+    align-items: start;
+    margin-bottom: 56px;
 }
 
+.about-photo-wrap { border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow-md); }
+.about-photo-wrap img { width: 100%; display: block; }
+
+.about-text p {
+    color: var(--clr-muted);
+    margin-bottom: 16px;
+    line-height: 1.75;
+    text-align: justify;
+}
+
+/* ---- Stats ---- */
+.stats-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-bottom: 56px;
+}
+
+.stat-card {
+    background: var(--clr-dark);
+    border-radius: var(--radius);
+    padding: 32px 24px;
+    text-align: center;
+    box-shadow: var(--shadow-soft);
+}
+
+.stat-number {
+    display: block;
+    font-size: 2.4em;
+    font-weight: 700;
+    color: var(--clr-accent);
+    line-height: 1;
+    margin-bottom: 8px;
+}
+
+.stat-label { font-size: 0.88em; color: rgba(255,255,255,0.65); }
+
+/* ---- Team table ---- */
+.team-section { margin-bottom: 56px; }
+
+.team-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--clr-white);
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow-soft);
+    font-size: 0.95em;
+}
+
+.team-table th {
+    background: var(--clr-dark);
+    color: #fff;
+    padding: 14px 20px;
+    text-align: left;
+    font-size: 0.82em;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.team-table td { padding: 13px 20px; border-bottom: 1px solid #f0f0f0; color: var(--clr-text); }
+.team-table tr:last-child td { border-bottom: none; }
+.team-table tr:hover td { background: #fafafa; }
+
+/* ---- Principles ---- */
+.principles-section { margin-bottom: 56px; }
+
+.features-list {
+    list-style: none;
+    padding: 0;
+    margin: 24px 0 0 0;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+}
+
+.features-list li {
+    padding: 16px 18px 16px 46px;
+    background: var(--clr-white);
+    border-radius: 10px;
+    border-left: 4px solid var(--clr-accent);
+    position: relative;
+    box-shadow: var(--shadow-soft);
+    color: var(--clr-text);
+    font-size: 0.95em;
+    transition: transform 0.25s, box-shadow 0.25s;
+}
+
+.features-list li::before {
+    content: '\f00c';
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 900;
+    position: absolute;
+    left: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--clr-accent);
+}
+
+.features-list li:hover {
+    transform: translateX(4px);
+    box-shadow: var(--shadow-md);
+}
+
+/* ---- Reviews ---- */
+.reviews-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-top: 24px;
+}
+
+.review-card {
+    background: var(--clr-white);
+    border-radius: var(--radius);
+    padding: 24px;
+    box-shadow: var(--shadow-soft);
+    transition: transform 0.25s, box-shadow 0.25s;
+}
+
+.review-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-md);
+}
+
+.review-header {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 14px;
+}
+
+.review-avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+.review-header strong { display: block; font-size: 0.95em; color: #1A1A1A; margin-bottom: 4px; }
+
+.review-stars { color: #f59e0b; font-size: 0.82em; }
+
+.review-card p { margin: 0; color: var(--clr-muted); font-size: 0.92em; line-height: 1.65; }
+
+
 .wrapper {
-    width: 1500px;
+    max-width: 1500px;
+    width: calc(100% - 30px);
     margin: 30px auto;
     background-color: #ffffff;
     border-radius: 12px;
@@ -87,6 +242,14 @@ body {
     background: linear-gradient(135deg, #e94560, #c73652);
     color: white;
     box-shadow: 0 3px 10px rgba(233,69,96,0.4);
+}
+
+.nav-list a i {
+    width: 16px;
+    text-align: center;
+    margin-right: 7px;
+    font-size: 0.9em;
+    opacity: 0.85;
 }
 
 h2 {

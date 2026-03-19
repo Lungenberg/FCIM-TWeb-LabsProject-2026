@@ -1,98 +1,158 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MusicStore - Контакты</title>
+    <link rel="stylesheet" href="../../style/common.css">
     <link rel="stylesheet" href="contacts.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
 
-<div class="wrapper">
-    <div class="header">
-        <h1>📞 Свяжитесь с нами</h1>
-    </div>
-
-    <div class="main-content">
-        <div class="sidebar">
-            <h3>Навигация</h3>
-            <ul class="nav-list">
-                <li><a href="../../index.html">🏠 Главная</a></li>
-                <li><a href="../catalog/catalog.html">💿 Каталог</a></li>
-                <li><a href="../about/about.html">ℹ️ О нас</a></li>
-                <li><a href="contacts.html" class="active">📞 Контакты</a></li>
-                <li><a href="../news/news.html">📰 Новости</a></li>
-            </ul>
+<!-- ===== HEADER ===== -->
+<header class="site-header">
+    <div class="container">
+        <a href="../../index.html" class="site-logo">
+            <i class="fa-solid fa-music"></i> MusicStore
+        </a>
+        <ul class="top-nav">
+            <li><a href="../../index.html"><i class="fa-solid fa-house"></i> Главная</a></li>
+            <li><a href="../catalog/catalog.html"><i class="fa-solid fa-compact-disc"></i> Каталог</a></li>
+            <li><a href="../about/about.html"><i class="fa-solid fa-circle-info"></i> О нас</a></li>
+            <li><a href="contacts.html" class="active"><i class="fa-solid fa-phone"></i> Контакты</a></li>
+            <li><a href="../news/news.html"><i class="fa-solid fa-newspaper"></i> Новости</a></li>
+        </ul>
+        <div class="header-right">
+            <span class="header-phone"><i class="fa-solid fa-phone"></i> +373 22 123 456</span>
+            <a href="contacts.html" class="cart-btn">
+                <i class="fa-solid fa-cart-shopping"></i>
+                <span class="cart-badge">0</span>
+            </a>
         </div>
+    </div>
+</header>
 
-        <div class="content">
-            <h2>Форма заказа и обратной связи</h2>
-            <p style="color:#666; margin-top:0;">Заполните форму, и мы свяжемся с вами в течение 24 часов.</p>
+<!-- ===== PAGE HERO ===== -->
+<div class="page-hero">
+    <div class="container">
+        <h1><i class="fa-solid fa-phone"></i> Свяжитесь с нами</h1>
+    </div>
+</div>
 
-            <div class="contacts-layout">
-                <form action="#" class="contact-form">
-                    <div class="form-group">
-                        <label for="userName">Ваше имя</label>
-                        <input type="text" id="userName" name="name" placeholder="Иван Иванов">
-                    </div>
-                    <div class="form-group">
-                        <label for="userEmail">Email</label>
-                        <input type="email" id="userEmail" name="email" placeholder="example@mail.com">
-                    </div>
-                    <div class="form-group">
-                        <label for="userPhone">Телефон</label>
-                        <input type="tel" id="userPhone" name="phone" placeholder="+373 XX XXX XXX">
-                    </div>
-                    <div class="form-group">
-                        <label for="reqType">Тип обращения</label>
-                        <select id="reqType" name="type">
-                            <option>Заказ альбома</option>
-                            <option>Вопрос о наличии</option>
-                            <option>Жалоба</option>
-                            <option>Предложение</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="userMessage">Сообщение</label>
-                        <textarea id="userMessage" name="message" rows="4" placeholder="Напишите детали здесь..."></textarea>
-                    </div>
-                    <div class="form-actions">
-                        <button type="submit" class="btn btn-submit">✉️ Отправить</button>
-                        <button type="reset" class="btn btn-reset">✖ Очистить</button>
-                    </div>
-                </form>
+<!-- ===== MAIN ===== -->
+<main class="contacts-main">
+    <div class="container contacts-layout">
 
-                <div class="contact-info-panel">
-                    <div class="info-card">
-                        <h4>📍 Адрес</h4>
-                        <p>г. Кишинёв</p>
-                        <p>бул. Штефан чел Маре, 168</p>
-                    </div>
-                    <div class="info-card">
-                        <h4>📞 Телефон</h4>
-                        <p><a href="tel:+37322123456">+373 22 123 456</a></p>
-                    </div>
-                    <div class="info-card">
-                        <h4>📧 Email</h4>
-                        <p><a href="mailto:info@musicstore.md">info@musicstore.md</a></p>
-                    </div>
-                    <div class="info-card">
-                        <h4>🕐 Режим работы</h4>
-                        <p>Пн–Пт: 9:00 – 19:00</p>
-                        <p>Сб: 10:00 – 16:00</p>
-                        <p>Вс: выходной</p>
-                    </div>
-                    <div class="map-embed">
-                        📍 Карта (Google Maps)
-                    </div>
+        <!-- Form -->
+        <section class="contact-form-wrap">
+            <h2 class="section-title">Форма заказа</h2>
+            <p class="contacts-subtitle">Заполните форму, и мы свяжемся с вами в течение 24 часов.</p>
+            <form action="#" class="contact-form">
+                <div class="form-group">
+                    <label for="userName">Ваше имя</label>
+                    <input type="text" id="userName" name="name" placeholder="Иван Иванов">
                 </div>
+                <div class="form-group">
+                    <label for="userEmail">Email</label>
+                    <input type="email" id="userEmail" name="email" placeholder="example@mail.com">
+                </div>
+                <div class="form-group">
+                    <label for="userPhone">Телефон</label>
+                    <input type="tel" id="userPhone" name="phone" placeholder="+373 XX XXX XXX">
+                </div>
+                <div class="form-group">
+                    <label for="reqType">Тип обращения</label>
+                    <select id="reqType" name="type">
+                        <option>Заказ альбома</option>
+                        <option>Вопрос о наличии</option>
+                        <option>Жалоба</option>
+                        <option>Предложение</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="userMessage">Сообщение</label>
+                    <textarea id="userMessage" name="message" rows="4" placeholder="Напишите детали здесь..."></textarea>
+                </div>
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-primary"><i class="fa-solid fa-paper-plane"></i> Отправить</button>
+                    <button type="reset" class="btn btn-secondary"><i class="fa-solid fa-xmark"></i> Очистить</button>
+                </div>
+            </form>
+        </section>
+
+        <!-- Info panel -->
+        <aside class="contact-info-panel">
+            <div class="info-card">
+                <h4><i class="fa-solid fa-location-dot"></i> Адрес</h4>
+                <p>г. Кишинёв</p>
+                <p>бул. Штефан чел Маре, 168</p>
+            </div>
+            <div class="info-card">
+                <h4><i class="fa-solid fa-phone"></i> Телефон</h4>
+                <p><a href="tel:+37322123456">+373 22 123 456</a></p>
+            </div>
+            <div class="info-card">
+                <h4><i class="fa-solid fa-envelope"></i> Email</h4>
+                <p><a href="mailto:info@musicstore.md">info@musicstore.md</a></p>
+            </div>
+            <div class="info-card">
+                <h4><i class="fa-solid fa-clock"></i> Режим работы</h4>
+                <p>Пн–Пт: 9:00 – 19:00</p>
+                <p>Сб: 10:00 – 16:00</p>
+                <p>Вс: выходной</p>
+            </div>
+            <div class="map-embed">
+                <i class="fa-solid fa-map-location-dot"></i> Карта (Google Maps)
+            </div>
+        </aside>
+
+    </div>
+</main>
+
+<!-- ===== FOOTER ===== -->
+<footer class="site-footer">
+    <div class="footer-top">
+        <div class="container">
+            <div class="footer-col">
+                <div class="footer-logo"><i class="fa-solid fa-music"></i> MusicStore</div>
+                <p class="footer-about">Магазин лучших музыкальных альбомов. Виниловые пластинки и CD от лучших исполнителей мира.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Покупателям</h4>
+                <ul class="footer-links">
+                    <li><a href="../catalog/catalog.html">Каталог альбомов</a></li>
+                    <li><a href="contacts.html">Доставка и оплата</a></li>
+                    <li><a href="contacts.html">Возврат товара</a></li>
+                    <li><a href="../about/about.html">О нас</a></li>
+                    <li><a href="../news/news.html">Новости</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Контакты</h4>
+                <div class="footer-contact-item"><i class="fa-solid fa-location-dot"></i><span>г. Кишинёв, бул. Штефан чел Маре, 168</span></div>
+                <div class="footer-contact-item"><i class="fa-solid fa-phone"></i><a href="tel:+37322123456">+373 22 123 456</a></div>
+                <div class="footer-contact-item"><i class="fa-solid fa-envelope"></i><a href="mailto:info@musicstore.md">info@musicstore.md</a></div>
+                <div class="footer-contact-item"><i class="fa-solid fa-clock"></i><span>Пн–Пт: 9:00–19:00,&nbsp;Сб: 10:00–16:00</span></div>
             </div>
         </div>
     </div>
-
-    <div class="footer">
-        &copy; 2026 MusicStore &mdash; Выполнено для лабораторной работы №2.
+    <div class="footer-bottom">
+        <div class="container">
+            <span class="footer-copy">&copy; 2026 MusicStore</span>
+            <div class="footer-payments">
+                <i class="fa-brands fa-cc-visa"></i>
+                <i class="fa-brands fa-cc-mastercard"></i>
+                <i class="fa-brands fa-cc-paypal"></i>
+            </div>
+            <div class="footer-social">
+                <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#" aria-label="Telegram"><i class="fa-brands fa-telegram"></i></a>
+                <a href="#" aria-label="VK"><i class="fa-brands fa-vk"></i></a>
+            </div>
+        </div>
     </div>
-</div>
+</footer>
 
 </body>
 </html>
