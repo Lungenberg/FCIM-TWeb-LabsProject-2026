@@ -24,7 +24,7 @@
         </ul>
         <div class="header-right">
             <span class="header-phone"><i class="fa-solid fa-phone"></i> +373 22 123 456</span>
-            <a href="../contacts/contacts.html" class="cart-btn">
+            <a href="../contacts/contacts.html" class="cart-btn" id="cart-toggle">
                 <i class="fa-solid fa-cart-shopping"></i>
                 <span class="cart-badge">0</span>
             </a>
@@ -44,18 +44,18 @@
         <aside class="catalog-sidebar">
             <div class="filter-group">
                 <h4 class="filter-title">Жанр</h4>
-                <label class="filter-check"><input type="checkbox" checked> Рок</label>
-                <label class="filter-check"><input type="checkbox" checked> Метал</label>
-                <label class="filter-check"><input type="checkbox" checked> Прогрессив</label>
-                <label class="filter-check"><input type="checkbox" checked> Гранж</label>
-                <label class="filter-check"><input type="checkbox"> Джаз</label>
-                <label class="filter-check"><input type="checkbox"> Поп</label>
+                <label class="filter-check"><input type="checkbox" class="genre-check" data-genre="rock" checked> Рок</label>
+                <label class="filter-check"><input type="checkbox" class="genre-check" data-genre="metal" checked> Метал</label>
+                <label class="filter-check"><input type="checkbox" class="genre-check" data-genre="prog" checked> Прогрессив</label>
+                <label class="filter-check"><input type="checkbox" class="genre-check" data-genre="grunge" checked> Гранж</label>
+                <label class="filter-check"><input type="checkbox" class="genre-check" data-genre="jazz"> Джаз</label>
+                <label class="filter-check"><input type="checkbox" class="genre-check" data-genre="pop"> Поп</label>
             </div>
             <div class="filter-group">
                 <h4 class="filter-title">Цена, $</h4>
                 <div class="price-range">
-                    <input type="range" min="0" max="100" value="100" class="price-slider">
-                    <div class="price-labels"><span>$0</span><span>$100</span></div>
+                    <input type="range" min="0" max="100" value="100" class="price-slider" id="price-slider">
+                    <div class="price-labels"><span>$0</span><span id="price-val">$100</span></div>
                 </div>
             </div>
             <div class="filter-group">
@@ -84,7 +84,7 @@
 
             <div class="catalog-grid">
 
-                <div class="catalog-item">
+                <div class="catalog-item" data-genre="rock">
                     <div class="catalog-item-img-wrap">
                         <span class="badge badge-new">New</span>
                         <a href="../contacts/contacts.html">
@@ -98,7 +98,7 @@
                     </div>
                 </div>
 
-                <div class="catalog-item">
+                <div class="catalog-item" data-genre="rock">
                     <div class="catalog-item-img-wrap">
                         <span class="badge badge-hit">Хит</span>
                         <a href="../contacts/contacts.html">
@@ -112,7 +112,7 @@
                     </div>
                 </div>
 
-                <div class="catalog-item">
+                <div class="catalog-item" data-genre="prog">
                     <div class="catalog-item-img-wrap">
                         <a href="../contacts/contacts.html">
                             <img src="../../assets/img/inthecourtofthecrimsonking.jpg" alt="King Crimson">
@@ -125,7 +125,7 @@
                     </div>
                 </div>
 
-                <div class="catalog-item">
+                <div class="catalog-item" data-genre="rock">
                     <div class="catalog-item-img-wrap">
                         <span class="badge badge-sale">-15%</span>
                         <a href="../contacts/contacts.html">
@@ -139,7 +139,7 @@
                     </div>
                 </div>
 
-                <div class="catalog-item">
+                <div class="catalog-item" data-genre="rock">
                     <div class="catalog-item-img-wrap">
                         <span class="badge badge-hit">Хит</span>
                         <a href="../contacts/contacts.html">
@@ -153,7 +153,7 @@
                     </div>
                 </div>
 
-                <div class="catalog-item">
+                <div class="catalog-item" data-genre="grunge">
                     <div class="catalog-item-img-wrap">
                         <span class="badge badge-new">New</span>
                         <a href="../contacts/contacts.html">
@@ -215,5 +215,25 @@
     </div>
 </footer>
 
+<div id="toast"></div>
+
+<!-- Cart Modal -->
+<div id="cart-overlay"></div>
+<div id="cart-modal">
+    <div class="cart-modal-header">
+        <h3><i class="fa-solid fa-cart-shopping"></i> Корзина</h3>
+        <button id="cart-close" aria-label="Закрыть">&times;</button>
+    </div>
+    <div id="cart-items-list"></div>
+    <div class="cart-empty" id="cart-empty">Корзина пуста</div>
+    <div class="cart-footer" id="cart-footer">
+        <div class="cart-total">Итого: <strong id="cart-total-val">$0</strong></div>
+        <a href="../contacts/contacts.html" class="btn btn-primary cart-checkout-btn">
+            <i class="fa-solid fa-paper-plane"></i> Оформить заказ
+        </a>
+    </div>
+</div>
+
+<script src="catalog.js"></script>
 </body>
 </html>

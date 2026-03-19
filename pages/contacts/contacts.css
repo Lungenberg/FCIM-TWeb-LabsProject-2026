@@ -61,6 +61,40 @@
 
 .form-actions { display: flex; gap: 12px; margin-top: 22px; }
 
+.form-group input.invalid,
+.form-group textarea.invalid {
+    border-color: #e94560;
+    box-shadow: 0 0 0 3px rgba(233,69,96,0.12);
+}
+
+.form-group input.valid,
+.form-group textarea.valid {
+    border-color: #27ae60;
+    box-shadow: 0 0 0 3px rgba(39,174,96,0.1);
+}
+
+.field-error {
+    display: block;
+    font-size: 0.8em;
+    color: #e94560;
+    margin-top: 4px;
+    min-height: 1em;
+}
+
+/* Success message */
+.form-success {
+    display: none;
+    background: #eafaf1;
+    border: 1.5px solid #27ae60;
+    color: #1e8449;
+    padding: 16px 20px;
+    border-radius: 8px;
+    font-size: 0.95em;
+    font-weight: 600;
+    text-align: center;
+    margin-top: 20px;
+}
+
 .contact-info-panel {
     display: flex;
     flex-direction: column;

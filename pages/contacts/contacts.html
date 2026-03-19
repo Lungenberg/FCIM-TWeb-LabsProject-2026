@@ -44,18 +44,21 @@
         <section class="contact-form-wrap">
             <h2 class="section-title">Форма заказа</h2>
             <p class="contacts-subtitle">Заполните форму, и мы свяжемся с вами в течение 24 часов.</p>
-            <form action="#" class="contact-form">
+            <form action="#" class="contact-form" id="contact-form" novalidate>
                 <div class="form-group">
                     <label for="userName">Ваше имя</label>
                     <input type="text" id="userName" name="name" placeholder="Иван Иванов">
+                    <span class="field-error" id="err-name"></span>
                 </div>
                 <div class="form-group">
                     <label for="userEmail">Email</label>
                     <input type="email" id="userEmail" name="email" placeholder="example@mail.com">
+                    <span class="field-error" id="err-email"></span>
                 </div>
                 <div class="form-group">
                     <label for="userPhone">Телефон</label>
                     <input type="tel" id="userPhone" name="phone" placeholder="+373 XX XXX XXX">
+                    <span class="field-error" id="err-phone"></span>
                 </div>
                 <div class="form-group">
                     <label for="reqType">Тип обращения</label>
@@ -69,6 +72,7 @@
                 <div class="form-group">
                     <label for="userMessage">Сообщение</label>
                     <textarea id="userMessage" name="message" rows="4" placeholder="Напишите детали здесь..."></textarea>
+                    <span class="field-error" id="err-message"></span>
                 </div>
                 <div class="form-actions">
                     <button type="submit" class="btn btn-primary"><i class="fa-solid fa-paper-plane"></i> Отправить</button>
@@ -148,5 +152,6 @@
     </div>
 </footer>
 
+<script src="contacts.js"></script>
 </body>
 </html>
