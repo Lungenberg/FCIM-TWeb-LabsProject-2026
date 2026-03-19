@@ -1,7 +1,3 @@
-/* ===================================================
-   catalog.css — Catalog page
-   =================================================== */
-
 .catalog-main { padding: 48px 0 80px; }
 
 .catalog-layout {
@@ -11,7 +7,6 @@
     align-items: start;
 }
 
-/* ---- Filter sidebar ---- */
 .catalog-sidebar {
     background: var(--clr-white);
     border-radius: var(--radius);
@@ -71,7 +66,6 @@
     color: var(--clr-muted);
 }
 
-/* ---- Catalog section ---- */
 .catalog-toolbar {
     display: flex;
     align-items: center;
@@ -110,7 +104,6 @@
     border-color: var(--clr-dark);
 }
 
-/* ---- Catalog grid ---- */
 .catalog-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -152,7 +145,6 @@
 
 .catalog-item:hover img { transform: scale(1.07); }
 
-/* Badges */
 .badge {
     position: absolute;
     top: 10px;
