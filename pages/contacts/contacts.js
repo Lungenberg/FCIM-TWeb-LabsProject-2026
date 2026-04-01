@@ -1,16 +1,60 @@
+var API_BASE = 'http://localhost:5000';
+
 var form = document.getElementById('contact-form');
+var submitBtn = form.querySelector('[type="submit"]');
 
 var successMsg = document.createElement('div');
 successMsg.className = 'form-success';
 successMsg.innerHTML = '<i class="fa-solid fa-circle-check"></i> Спасибо! Ваше сообщение отправлено. Мы свяжемся с вами в течение 24 часов.';
 form.parentNode.insertBefore(successMsg, form.nextSibling);
 
+var errorMsg = document.createElement('div');
+errorMsg.className = 'form-error-msg';
+errorMsg.style.cssText = 'display:none;color:#c0392b;margin-top:12px;font-size:.95rem';
+form.parentNode.insertBefore(errorMsg, form.nextSibling);
+
 form.addEventListener('submit', function(e) {
     e.preventDefault();
-    if (validateAll()) {
+    if (!validateAll()) return;
+
+    var reqTypeMap = {
+        'order':      'Order album',
+        'stock':      'Stock question',
+        'complaint':  'Complaint',
+        'suggestion': 'Suggestion'
+    };
+
+    var payload = {
+        userName:  document.getElementById('userName').value.trim(),
+        userEmail: document.getElementById('userEmail').value.trim(),
+        userPhone: document.getElementById('userPhone').value.trim(),
+        reqType:   reqTypeMap[document.getElementById('reqType').value] || document.getElementById('reqType').value,
+        message:   document.getElementById('userMessage').value.trim()
+    };
+
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Отправка...';
+    errorMsg.style.display = 'none';
+
+    fetch(API_BASE + '/api/contacts', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+    })
+    .then(function(res) {
+        if (!res.ok) return res.json().then(function(d) { throw new Error(JSON.stringify(d)); });
         form.style.display = 'none';
         successMsg.style.display = 'block';
-    }
+    })
+    .catch(function(err) {
+        errorMsg.textContent = 'Не удалось отправить сообщение. Попробуйте позже.';
+        errorMsg.style.display = 'block';
+        console.error(err);
+    })
+    .finally(function() {
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Отправить';
+    });
 });
 
 form.addEventListener('reset', function() {
@@ -18,13 +62,25 @@ form.addEventListener('reset', function() {
         clearError(id);
     });
     successMsg.style.display = 'none';
+    errorMsg.style.display = 'none';
     form.style.display = '';
 });
 
-document.getElementById('userName').addEventListener('input', function() { validateName(true); });
-document.getElementById('userEmail').addEventListener('input', function() { validateEmail(true); });
-document.getElementById('userPhone').addEventListener('input', function() { validatePhone(true); });
-document.getElementById('userMessage').addEventListener('input', function() { validateMessage(true); });
+document.getElementById('userName').addEventListener('input', function() { 
+    validateName(true);
+ });
+
+document.getElementById('userEmail').addEventListener('input', function() { 
+    validateEmail(true);
+ });
+
+document.getElementById('userPhone').addEventListener('input', function() { 
+    validatePhone(true);
+ });
+
+document.getElementById('userMessage').addEventListener('input', function() { 
+    validateMessage(true);
+ });
 
 function validateAll() {
     var ok = true;
@@ -41,9 +97,11 @@ function validateName(silent) {
     if (val.length < 2) {
         return setError(input, 'err-name', 'Введите имя (минимум 2 символа)');
     }
+
     if (!/^[А-ЯЁа-яёA-Za-z\s\-]+$/.test(val)) {
         return setError(input, 'err-name', 'Имя может содержать только буквы');
     }
+
     return setValid(input, 'err-name');
 }
 
@@ -53,9 +111,11 @@ function validateEmail(silent) {
     if (val === '') {
         return setError(input, 'err-email', 'Введите email');
     }
+
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(val)) {
         return setError(input, 'err-email', 'Некорректный формат email (например: user@mail.com)');
     }
+
     return setValid(input, 'err-email');
 }
 
@@ -65,13 +125,16 @@ function validatePhone(silent) {
     if (val === '') {
         return setError(input, 'err-phone', 'Введите номер телефона');
     }
+
     var digits = val.replace(/\D/g, '');
     if (digits.length < 7 || digits.length > 15) {
         return setError(input, 'err-phone', 'Некорректный номер (от 7 до 15 цифр, допустим +, пробелы, дефисы)');
     }
+
     if (!/^[+\d][\d\s\-()]+$/.test(val)) {
         return setError(input, 'err-phone', 'Допустимы только цифры, +, пробелы и дефисы');
     }
+
     return setValid(input, 'err-phone');
 }
 
@@ -81,6 +144,7 @@ function validateMessage(silent) {
     if (val.length < 10) {
         return setError(input, 'err-message', 'Сообщение слишком короткое (минимум 10 символов)');
     }
+    
     return setValid(input, 'err-message');
 }
 

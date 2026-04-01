@@ -1,18 +1,70 @@
+var API_BASE = 'http://localhost:5000';
+
 var cart = [];
 
-document.querySelectorAll('.order-btn').forEach(function(btn) {
-    btn.addEventListener('click', function(e) {
-        e.preventDefault();
+// ── Fetch albums from API and render catalog cards ────────────────────────────
+function loadAlbums() {
+    var grid = document.querySelector('.catalog-grid');
+    grid.innerHTML = '<p style="padding:20px">Загрузка...</p>';
 
-        var card = btn.closest('.catalog-item');
-        var name = card.querySelector('h3').textContent.trim();
+    fetch(API_BASE + '/api/albums')
+        .then(function(res) {
+            if (!res.ok) throw new Error('Ошибка сервера: ' + res.status);
+            return res.json();
+        })
+        .then(function(albums) {
+            grid.innerHTML = '';
+            if (albums.length === 0) {
+                grid.innerHTML = '<p style="padding:20px">Альбомы не найдены.</p>';
+                return;
+            }
+            albums.forEach(function(album) {
+                var imgSrc = album.imageUrl
+                    ? '../../' + album.imageUrl
+                    : '../../assets/img/placeholder.jpg';
+                var div = document.createElement('div');
+                div.className = 'catalog-item';
+                div.dataset.genre = album.genre;
+                div.dataset.price = album.price;
+                div.dataset.albumId = album.id;
+                div.innerHTML =
+                    '<div class="catalog-item-img-wrap">' +
+                        '<a href="../contacts/contacts.html">' +
+                            '<img src="' + escapeHtml(imgSrc) + '" alt="' + escapeHtml(album.artist) + '">' +
+                        '</a>' +
+                    '</div>' +
+                    '<div class="catalog-item-body">' +
+                        '<h3>' + escapeHtml(album.title) + '</h3>' +
+                        '<p class="catalog-item-artist">' + escapeHtml(album.artist) + '</p>' +
+                        '<p class="price">$' + album.price + '</p>' +
+                        '<a href="#" class="btn btn-primary order-btn">Заказать</a>' +
+                    '</div>';
+                grid.appendChild(div);
+            });
+            document.querySelector('.catalog-count').textContent = albums.length + ' альбомов';
+            filterCards();
+        })
+        .catch(function(err) {
+            grid.innerHTML = '<p style="padding:20px;color:red">Не удалось загрузить каталог. Убедитесь, что сервер запущен.</p>';
+            console.error(err);
+        });
+}
 
-        var priceText = card.querySelector('.price').childNodes[0].textContent;
-        var price = parseInt(priceText.replace(/[^0-9]/g, '')) || 0;
+loadAlbums();
 
-        addToCart(name, price);
-        showToast('«' + name + '» добавлен в корзину!');
-    });
+// Event delegation for order buttons (works with dynamically rendered cards)
+document.querySelector('.catalog-grid').addEventListener('click', function(e) {
+    var btn = e.target.closest('.order-btn');
+    if (!btn) return;
+    e.preventDefault();
+
+    var card = btn.closest('.catalog-item');
+    var name = card.querySelector('h3').textContent.trim();
+    var priceText = card.querySelector('.price').childNodes[0].textContent;
+    var price = parseInt(priceText.replace(/[^0-9]/g, '')) || 0;
+
+    addToCart(name, price);
+    showToast('«' + name + '» добавлен в корзину!');
 });
 
 function addToCart(name, price) {
@@ -25,6 +77,7 @@ function addToCart(name, price) {
     } else {
         cart.push({ name: name, price: price, qty: 1 });
     }
+
     renderCart();
     updateBadge();
 }
@@ -76,11 +129,13 @@ document.getElementById('cart-items-list').addEventListener('click', function(e)
     if (action === 'inc') {
         cart[index].qty += 1;
     } else if (action === 'dec') {
+
         if (cart[index].qty > 1) {
             cart[index].qty -= 1;
         } else {
             cart.splice(index, 1);
         }
+
     } else if (action === 'remove') {
         cart.splice(index, 1);
     }
@@ -90,7 +145,10 @@ document.getElementById('cart-items-list').addEventListener('click', function(e)
 });
 
 function updateBadge() {
-    var total = cart.reduce(function(sum, item) { return sum + item.qty; }, 0);
+    var total = cart.reduce(function(sum, item) {
+        return sum + item.qty; 
+    }, 0);
+    
     document.querySelector('.cart-badge').textContent = total;
 }
 
