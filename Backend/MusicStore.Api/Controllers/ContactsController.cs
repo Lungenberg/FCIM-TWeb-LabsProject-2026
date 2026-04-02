@@ -16,7 +16,6 @@ public class ContactsController : ControllerBase
         _db = db;
     }
 
-    // GET /api/contacts
     [HttpGet]
     public async Task<IActionResult> GetAll()
     {
@@ -26,7 +25,6 @@ public class ContactsController : ControllerBase
         return Ok(requests);
     }
 
-    // GET /api/contacts/3
     [HttpGet("{id:int}")]
     public async Task<IActionResult> GetById(int id)
     {
@@ -34,7 +32,6 @@ public class ContactsController : ControllerBase
         return request is null ? NotFound() : Ok(request);
     }
 
-    // POST /api/contacts
     [HttpPost]
     public async Task<IActionResult> Create([FromBody] ContactRequest request)
     {
@@ -52,7 +49,6 @@ public class ContactsController : ControllerBase
         return CreatedAtAction(nameof(GetById), new { id = request.Id }, request);
     }
 
-    // DELETE /api/contacts/3
     [HttpDelete("{id:int}")]
     public async Task<IActionResult> Delete(int id)
     {

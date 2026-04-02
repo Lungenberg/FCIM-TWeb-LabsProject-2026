@@ -16,7 +16,6 @@ public class AlbumsController : ControllerBase
         _db = db;
     }
 
-    // GET /api/albums?genre=rock&minPrice=10&maxPrice=50
     [HttpGet]
     public async Task<IActionResult> GetAll(
         [FromQuery] string? genre,
@@ -38,7 +37,6 @@ public class AlbumsController : ControllerBase
         return Ok(albums);
     }
 
-    // GET /api/albums/5
     [HttpGet("{id:int}")]
     public async Task<IActionResult> GetById(int id)
     {
@@ -46,7 +44,6 @@ public class AlbumsController : ControllerBase
         return album is null ? NotFound() : Ok(album);
     }
 
-    // POST /api/albums
     [HttpPost]
     public async Task<IActionResult> Create([FromBody] Album album)
     {
@@ -60,7 +57,6 @@ public class AlbumsController : ControllerBase
         return CreatedAtAction(nameof(GetById), new { id = album.Id }, album);
     }
 
-    // PUT /api/albums/5
     [HttpPut("{id:int}")]
     public async Task<IActionResult> Update(int id, [FromBody] Album album)
     {
@@ -86,7 +82,6 @@ public class AlbumsController : ControllerBase
         return Ok(existing);
     }
 
-    // DELETE /api/albums/5
     [HttpDelete("{id:int}")]
     public async Task<IActionResult> Delete(int id)
     {

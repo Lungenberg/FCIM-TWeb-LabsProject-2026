@@ -1,10 +1,10 @@
-using System;
+﻿using System;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 #nullable disable
 
-#pragma warning disable CA1814
+#pragma warning disable CA1814 // Prefer jagged arrays over multidimensional
 
 namespace MusicStore.Api.Migrations
 {
@@ -14,8 +14,12 @@ namespace MusicStore.Api.Migrations
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.EnsureSchema(
+                name: "public");
+
             migrationBuilder.CreateTable(
                 name: "albums",
+                schema: "public",
                 columns: table => new
                 {
                     id = table.Column<int>(type: "integer", nullable: false)
@@ -36,6 +40,7 @@ namespace MusicStore.Api.Migrations
 
             migrationBuilder.CreateTable(
                 name: "contact_requests",
+                schema: "public",
                 columns: table => new
                 {
                     id = table.Column<int>(type: "integer", nullable: false)
@@ -53,6 +58,7 @@ namespace MusicStore.Api.Migrations
                 });
 
             migrationBuilder.InsertData(
+                schema: "public",
                 table: "albums",
                 columns: new[] { "id", "artist", "created_at", "description", "genre", "image_url", "price", "stock_qty", "title" },
                 values: new object[,]
@@ -69,8 +75,13 @@ namespace MusicStore.Api.Migrations
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.DropTable(name: "albums");
-            migrationBuilder.DropTable(name: "contact_requests");
+            migrationBuilder.DropTable(
+                name: "albums",
+                schema: "public");
+
+            migrationBuilder.DropTable(
+                name: "contact_requests",
+                schema: "public");
         }
     }
 }

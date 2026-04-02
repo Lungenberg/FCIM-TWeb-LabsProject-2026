@@ -18,10 +18,10 @@ form.addEventListener('submit', function(e) {
     if (!validateAll()) return;
 
     var reqTypeMap = {
-        'order':      'Order album',
-        'stock':      'Stock question',
-        'complaint':  'Complaint',
-        'suggestion': 'Suggestion'
+        'Заказ альбома':    'Order album',
+        'Вопрос о наличии': 'Stock question',
+        'Жалоба':           'Complaint',
+        'Предложение':      'Suggestion'
     };
 
     var payload = {
@@ -42,7 +42,7 @@ form.addEventListener('submit', function(e) {
         body: JSON.stringify(payload)
     })
     .then(function(res) {
-        if (!res.ok) return res.json().then(function(d) { throw new Error(JSON.stringify(d)); });
+        if (!res.ok) return res.text().then(function(t) { throw new Error(t); });
         form.style.display = 'none';
         successMsg.style.display = 'block';
     })
