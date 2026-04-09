@@ -77,7 +77,12 @@ public class AuthController : ControllerBase
         var user = await _db.Users.FindAsync(userId);
         if (user is null) return Unauthorized();
 
-        return Ok(new UserDto { Id = user.Id, Email = user.Email, Name = user.Name });
+        return Ok(new UserDto
+        {
+            Id = user.Id, 
+            Email = user.Email, 
+            Name = user.Name
+        });
     }
 
     private async Task SignInUser(User user)
@@ -95,6 +100,9 @@ public class AuthController : ControllerBase
         await HttpContext.SignInAsync(
             CookieAuthenticationDefaults.AuthenticationScheme,
             principal,
-            new AuthenticationProperties { IsPersistent = true, ExpiresUtc = DateTimeOffset.UtcNow.AddDays(7) });
+            new AuthenticationProperties
+            {
+                IsPersistent = true, ExpiresUtc = DateTimeOffset.UtcNow.AddDays(7)
+            });
     }
 }

@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using MusicStore.Api.Data;
 using MusicStore.Api.Models;
+using MusicStore.Api.Dto;
 
 namespace MusicStore.Api.Controllers;
 
@@ -116,13 +117,3 @@ public class CartController : ControllerBase
     }
 }
 
-public class AddToCartDto
-{
-    public int AlbumId { get; set; }
-    public int Qty { get; set; } = 1;
-}
-
-public class UpdateQtyDto
-{
-    public int Qty { get; set; }
-}

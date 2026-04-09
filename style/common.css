@@ -236,7 +236,7 @@ a { text-decoration: none; }
 .cart-item:last-child { border-bottom: none; }
 
 .cart-item-name {
-    flex: 1;
+    flex: 1; 
     font-size: 0.88em;
     font-weight: 600;
     color: var(--clr-text);
