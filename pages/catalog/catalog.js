@@ -1,8 +1,107 @@
 var API_BASE = 'http://localhost:5000';
 
-var cart = [];
+var cart = []; // server-side cart items: { id, albumId, qty, albumTitle, albumArtist, albumPrice, albumImageUrl }
+var isLoggedIn = false;
 
-// ── Fetch albums from API and render catalog cards ────────────────────────────
+function checkAuth() {
+    return fetch(API_BASE + '/api/auth/me', { credentials: 'include' })
+        .then(function(res) {
+            if (res.ok) {
+                isLoggedIn = true;
+                return res.json();
+            }
+            isLoggedIn = false;
+            return null;
+        })
+        .catch(function() { isLoggedIn = false; return null; });
+}
+
+function initAuthUI() {
+    checkAuth().then(function(user) {
+        var authArea = document.getElementById('auth-area');
+        if (!authArea) return;
+        if (user) {
+            authArea.innerHTML =
+                '<span class="auth-user-name"><i class="fa-solid fa-user"></i> ' + escapeHtml(user.name) + '</span>' +
+                ' <a href="#" id="logout-btn" class="auth-link">Выйти</a>';
+            document.getElementById('logout-btn').addEventListener('click', function(e) {
+                e.preventDefault();
+                fetch(API_BASE + '/api/auth/logout', { method: 'POST', credentials: 'include' })
+                    .then(function() {
+                        localStorage.removeItem('musicstore_user');
+                        isLoggedIn = false;
+                        cart = [];
+                        renderCart();
+                        updateBadge();
+                        initAuthUI();
+                    });
+            });
+            loadServerCart();
+        } else {
+            authArea.innerHTML = '<a href="../auth/auth.html" class="auth-link"><i class="fa-solid fa-right-to-bracket"></i> Войти</a>';
+        }
+    });
+}
+
+initAuthUI();
+
+function loadServerCart() {
+    return fetch(API_BASE + '/api/cart', { credentials: 'include' })
+        .then(function(res) { return res.ok ? res.json() : []; })
+        .then(function(items) {
+            cart = items;
+            renderCart();
+            updateBadge();
+        })
+        .catch(function() { cart = []; });
+}
+
+function addToCartServer(albumId) {
+    return fetch(API_BASE + '/api/cart', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        credentials: 'include',
+        body: JSON.stringify({ albumId: albumId, qty: 1 })
+    }).then(function() { loadServerCart(); });
+}
+
+function updateCartItemServer(cartItemId, qty) {
+    return fetch(API_BASE + '/api/cart/' + cartItemId, {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        credentials: 'include',
+        body: JSON.stringify({ qty: qty })
+    }).then(function() { loadServerCart(); });
+}
+
+function removeCartItemServer(cartItemId) {
+    return fetch(API_BASE + '/api/cart/' + cartItemId, {
+        method: 'DELETE',
+        credentials: 'include'
+    }).then(function() { loadServerCart(); });
+}
+
+function checkoutServer() {
+    return fetch(API_BASE + '/api/orders', {
+        method: 'POST',
+        credentials: 'include'
+    })
+    .then(function(res) {
+        if (!res.ok) return res.json().then(function(d) { throw new Error(d.message || 'Ошибка оформления'); });
+        return res.json();
+    })
+    .then(function(order) {
+        cart = [];
+        renderCart();
+        updateBadge();
+        closeCart();
+        showToast('Заказ #' + order.id + ' оформлен! Сумма: $' + order.totalPrice);
+    })
+    .catch(function(err) {
+        showToast(err.message);
+    });
+}
+
 function loadAlbums() {
     var grid = document.querySelector('.catalog-grid');
     grid.innerHTML = '<p style="padding:20px">Загрузка...</p>';
@@ -52,35 +151,24 @@ function loadAlbums() {
 
 loadAlbums();
 
-// Event delegation for order buttons (works with dynamically rendered cards)
 document.querySelector('.catalog-grid').addEventListener('click', function(e) {
     var btn = e.target.closest('.order-btn');
     if (!btn) return;
     e.preventDefault();
 
-    var card = btn.closest('.catalog-item');
-    var name = card.querySelector('h3').textContent.trim();
-    var priceText = card.querySelector('.price').childNodes[0].textContent;
-    var price = parseInt(priceText.replace(/[^0-9]/g, '')) || 0;
-
-    addToCart(name, price);
-    showToast('«' + name + '» добавлен в корзину!');
-});
-
-function addToCart(name, price) {
-    var existing = cart.find(function(item) {
-        return item.name === name;
-    });
-    
-    if (existing) {
-        existing.qty += 1;
-    } else {
-        cart.push({ name: name, price: price, qty: 1 });
+    if (!isLoggedIn) {
+        showToast('Войдите в аккаунт, чтобы добавить в корзину');
+        window.location.href = '../auth/auth.html';
+        return;
     }
 
-    renderCart();
-    updateBadge();
-}
+    var card = btn.closest('.catalog-item');
+    var albumId = parseInt(card.dataset.albumId);
+    var name = card.querySelector('h3').textContent.trim();
+
+    addToCartServer(albumId);
+    showToast('«' + name + '» добавлен в корзину!');
+});
 
 function renderCart() {
     var list = document.getElementById('cart-items-list');
@@ -100,20 +188,20 @@ function renderCart() {
     footer.style.display = 'block';
 
     var total = 0;
-    cart.forEach(function(item, index) {
-        total += item.price * item.qty;
+    cart.forEach(function(item) {
+        total += item.albumPrice * item.qty;
 
         var div = document.createElement('div');
         div.className = 'cart-item';
         div.innerHTML =
-            '<span class="cart-item-name">' + escapeHtml(item.name) + '</span>' +
+            '<span class="cart-item-name">' + escapeHtml(item.albumTitle) + '</span>' +
             '<div class="cart-item-qty">' +
-                '<button data-action="dec" data-index="' + index + '">&#8722;</button>' +
+                '<button data-action="dec" data-id="' + item.id + '" data-qty="' + item.qty + '">&#8722;</button>' +
                 '<span>' + item.qty + '</span>' +
-                '<button data-action="inc" data-index="' + index + '">&#43;</button>' +
+                '<button data-action="inc" data-id="' + item.id + '" data-qty="' + item.qty + '">&#43;</button>' +
             '</div>' +
-            '<span class="cart-item-price">$' + (item.price * item.qty) + '</span>' +
-            '<button class="cart-item-remove" data-action="remove" data-index="' + index + '" aria-label="Удалить">&#10005;</button>';
+            '<span class="cart-item-price">$' + (item.albumPrice * item.qty) + '</span>' +
+            '<button class="cart-item-remove" data-action="remove" data-id="' + item.id + '" aria-label="Удалить">&#10005;</button>';
         list.appendChild(div);
     });
 
@@ -123,25 +211,22 @@ function renderCart() {
 document.getElementById('cart-items-list').addEventListener('click', function(e) {
     var btn = e.target.closest('[data-action]');
     if (!btn) return;
-    var index = parseInt(btn.dataset.index);
+    var cartItemId = parseInt(btn.dataset.id);
     var action = btn.dataset.action;
 
     if (action === 'inc') {
-        cart[index].qty += 1;
+        var currentQty = parseInt(btn.dataset.qty);
+        updateCartItemServer(cartItemId, currentQty + 1);
     } else if (action === 'dec') {
-
-        if (cart[index].qty > 1) {
-            cart[index].qty -= 1;
+        var qty = parseInt(btn.dataset.qty);
+        if (qty > 1) {
+            updateCartItemServer(cartItemId, qty - 1);
         } else {
-            cart.splice(index, 1);
+            removeCartItemServer(cartItemId);
         }
-
     } else if (action === 'remove') {
-        cart.splice(index, 1);
+        removeCartItemServer(cartItemId);
     }
-
-    renderCart();
-    updateBadge();
 });
 
 function updateBadge() {
@@ -168,9 +253,32 @@ document.getElementById('cart-close').addEventListener('click', closeCart);
 cartOverlay.addEventListener('click', closeCart);
 
 function openCart() {
-    renderCart();
+    if (isLoggedIn) {
+        loadServerCart().then(function() {
+            renderCart();
+        });
+    } else {
+        cart = [];
+        renderCart();
+    }
     cartModal.classList.add('open');
     cartOverlay.classList.add('open');
+}
+
+var checkoutBtn = document.querySelector('.cart-checkout-btn');
+if (checkoutBtn) {
+    checkoutBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        if (!isLoggedIn) {
+            window.location.href = '../auth/auth.html';
+            return;
+        }
+        if (cart.length === 0) {
+            showToast('Корзина пуста');
+            return;
+        }
+        checkoutServer();
+    });
 }
 
 function closeCart() {

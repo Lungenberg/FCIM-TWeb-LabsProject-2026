@@ -9,6 +9,10 @@ public class AppDbContext : DbContext
 
     public DbSet<Album> Albums { get; set; }
     public DbSet<ContactRequest> ContactRequests { get; set; }
+    public DbSet<User> Users { get; set; }
+    public DbSet<CartItem> CartItems { get; set; }
+    public DbSet<Order> Orders { get; set; }
+    public DbSet<OrderItem> OrderItems { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
@@ -19,6 +23,10 @@ public class AppDbContext : DbContext
     {
         modelBuilder.HasDefaultSchema("public");
         base.OnModelCreating(modelBuilder);
+
+        modelBuilder.Entity<User>()
+            .HasIndex(u => u.Email)
+            .IsUnique();
 
         modelBuilder.Entity<Album>().HasData(
             new Album { Id = 1, Title = "Audioslave", Artist = "Audioslave", Genre = "rock",   Price = 20m, ImageUrl = "assets/img/Audioslave-debut-album-cover-artwork-web-optimised-820-820x820.jpg", StockQty = 10, CreatedAt = new DateTime(2024, 1, 1, 0, 0, 0, DateTimeKind.Utc) },
