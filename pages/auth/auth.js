@@ -26,6 +26,11 @@ document.getElementById('login-form').addEventListener('submit', function(e) {
         errEl.textContent = 'Заполните все поля.';
         return;
     }
+    var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+        errEl.textContent = 'Введите корректный email адрес.';
+        return;
+    }
 
     var btn = this.querySelector('.auth-submit');
     btn.disabled = true;
@@ -66,6 +71,11 @@ document.getElementById('register-form').addEventListener('submit', function(e) 
 
     if (!name || !email || !password || !password2) {
         errEl.textContent = 'Заполните все поля.';
+        return;
+    }
+    var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+        errEl.textContent = 'Введите корректный email адрес.';
         return;
     }
     if (password.length < 6) {

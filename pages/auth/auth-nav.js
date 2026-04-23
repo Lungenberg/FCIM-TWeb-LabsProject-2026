@@ -1,11 +1,9 @@
 (function() {
     var API_BASE = 'http://localhost:5000';
 
-    // ── Auth state ────────────────────────────────────────────────────────────
     var user = null;
     try { user = JSON.parse(localStorage.getItem('musicstore_user')); } catch(e) {}
 
-    // ── Render auth area ──────────────────────────────────────────────────────
     var authArea = document.getElementById('auth-area');
     if (authArea) {
         if (user) {
@@ -29,7 +27,6 @@
         }
     }
 
-    // ── Cart modal (inject on pages that don't already have one) ─────────────
     if (!document.getElementById('cart-modal')) {
         var overlay = document.createElement('div');
         overlay.id = 'cart-overlay';
@@ -88,7 +85,6 @@
         });
     }
 
-    // ── Cart button intercept ─────────────────────────────────────────────────
     document.querySelectorAll('.cart-btn').forEach(function(btn) {
         btn.addEventListener('click', function(e) {
             e.preventDefault();
@@ -96,7 +92,6 @@
         });
     });
 
-    // ── Cart state & helpers ──────────────────────────────────────────────────
     var currentCart = [];
 
     function openModal() {
@@ -184,7 +179,6 @@
         return str.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
     }
 
-    // ── Update badge on load ──────────────────────────────────────────────────
     if (user) {
         fetch(API_BASE + '/api/cart', { credentials: 'include' })
             .then(function(res) { return res.ok ? res.json() : []; })
